@@ -90,9 +90,11 @@ Linux-tips
         指令：split --bytes=1024m bigfile.iso small_file_
 
 18. 情境：結合小檔案變成大檔案
+
         指令：cat small_file_* > joined_file.iso
 
 19. 情境：列出當前目錄所有檔案容量
+
         指令：du -sh
 
 20. 情境：持續觀察磁碟空間變化
