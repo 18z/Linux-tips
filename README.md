@@ -104,5 +104,14 @@ Linux-tips
 21. 情境：加入既有ssh private key
 
         指令：cp id* .ssh; ssh-add
+        
+22. 情境：檢查是否以root身份執行
+
+
+        腳本：
+        if [ "$UID" -ne "$ROOT_UID" ]
+        then
+            echo "執行身份非root"
+        fi  
 
  
