@@ -1,18 +1,18 @@
 Linux-tips
 ==========
 1. 情境：計算硬碟上所有filesystem剩餘之空間。
-    
+
         指令：df|awk '{sum += $4} END {print sum}'
 
 2. 情境：去除檔案中惱人的^M符號。(注意，^M要打ctrl+v及ctrl+m才會出現。)
 
         指令一：sed -i -e 's/^M//g' file
-        指令二：這個符號多半是因為Windows上面編輯的檔案移到Unix系統上在編輯的時候會遇到，可以用dos2unix 指令直接轉換。//要另外安裝指令就是。
+        指令二：dos2unix file // 這個符號多半是因為Windows上面編輯的檔案移到Unix系統上在編輯的時候會遇到，使用 dos2unix 可以直接轉換。
         指令三：perl -p -i -e 's/\r\n$/\n/g' my_file.txt
 
 3. 情境：看資料夾結構
 
-        指令：tree -d 只列出資料夾 tree -L 2 只列出最多兩層
+        指令：tree -d // 只列出資料夾 tree -L 2 只列出最多兩層
 
 4. 情境：大量改檔案名稱，並且遞增檔案id
 
@@ -25,7 +25,8 @@ Linux-tips
 6. 情境：大量改檔案名稱，大寫換小寫
 
         指令：rename 'y/A-Z/a-z/' *
-        其他rename http://www.computerhope.com/unix/rename.htm
+        [更多關於rename](http://www.computerhope.com/unix/rename.htm)
+
 
 7. 情境：檢查特定service是否執行中
 
@@ -42,7 +43,8 @@ Linux-tips
 10. 情境：查看shell環境
 
         指令一：ls -l `which sh`
-        指令二：echo $SHELL or env
+        指令二：echo $SHELL
+        指令三：env
 
 11. 情境：字串結合、調整
 
@@ -70,7 +72,7 @@ Linux-tips
         do 
             python utils/submit.py folder/$file 
         done
-        
+
         指令：find folder -type f -maxdepth=1 -exec CMD ‘{}’ \;
 
 15. 情境：在檔案第一行插入字串（例如csv檔要加表格名稱）
@@ -87,7 +89,7 @@ Linux-tips
 
 17. 情境：大檔案切割，切成多個小檔案
 
-        指令：split --bytes=1024m bigfile.iso small_file_
+        指令：split --bytes=1024m bigfile.iso file_prefix_
 
 18. 情境：結合小檔案變成大檔案
 
@@ -100,12 +102,12 @@ Linux-tips
 20. 情境：持續觀察磁碟空間變化
 
         指令：while true; do clear; df -h; sleep 3; done
-	指令：watch -n3 df -h
+        指令：watch -n3 df -h
 
 21. 情境：加入既有ssh private key
 
         指令：cp id* .ssh; ssh-add
-        
+
 22. 情境：檢查是否以root身份執行
 
 
@@ -114,5 +116,3 @@ Linux-tips
         then
             echo "執行身份非root"
         fi  
-
- 
