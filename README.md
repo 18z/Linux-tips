@@ -116,3 +116,7 @@ Linux-tips
         then
             echo "執行身份非root"
         fi  
+        
+23. 情境：找出 /var 目錄下最大檔案前十名
+
+        指令：du -a /var | sort -n -r | head -n 10
