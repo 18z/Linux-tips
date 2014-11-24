@@ -100,6 +100,7 @@ Linux-tips
 20. 情境：持續觀察磁碟空間變化
 
         指令：while true; do clear; df -h; sleep 3; done
+	指令：watch -n3 df -h
 
 21. 情境：加入既有ssh private key
 
