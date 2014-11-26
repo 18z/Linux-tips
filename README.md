@@ -126,4 +126,4 @@ Linux-tips
         指令：dpkg --get-selections > inistalled_packages.txt
         
 
-感謝：Amo Chen, Guesslin 提供點子與協助編輯
+
