@@ -124,3 +124,6 @@ Linux-tips
 24. 情境：列出所有已安裝套件 (Debian)
 
         指令：dpkg --get-selections > inistalled_packages.txt
+        
+
+感謝：Amo Chen, Guesslin 提供點子與協助編輯
