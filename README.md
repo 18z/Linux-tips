@@ -120,3 +120,7 @@ Linux-tips
 23. 情境：找出 /var 目錄下最大檔案前十名
 
         指令：du -a /var | sort -n -r | head -n 10
+        
+24. 情境：列出所有已安裝套件 (Debian)
+
+        指令：dpkg --get-selections > inistalled_packages.txt
