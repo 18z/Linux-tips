@@ -69,6 +69,15 @@
 24. 情境：列出所有已安裝套件 (Debian)
 
         指令：dpkg --get-selections > inistalled_packages.txt
+        
+25. 情境：使得某些特定ip透過特定gw出去
+
+        arr=("ip1" "ip2")
+
+        for i in ${arr[*]}
+    	do
+        	route add -host $i gw ip
+		done
 
 ### 文字編輯
 
