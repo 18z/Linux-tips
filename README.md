@@ -1,32 +1,15 @@
-Linux-tips
-==========
+## Linux-tips
+---
+
+### 系統管理
+
 1. 情境：計算硬碟上所有filesystem剩餘之空間。
 
         指令：df|awk '{sum += $4} END {print sum}'
 
-2. 情境：去除檔案中惱人的^M符號。(注意，^M要打ctrl+v及ctrl+m才會出現。)
-
-        指令一：sed -i -e 's/^M//g' file
-        指令二：dos2unix file // 這個符號多半是因為Windows上面編輯的檔案移到Unix系統上在編輯的時候會遇到，使用 dos2unix 可以直接轉換。
-        指令三：perl -p -i -e 's/\r\n$/\n/g' my_file.txt
-
 3. 情境：看資料夾結構
 
         指令：tree -d // 只列出資料夾 tree -L 2 只列出最多兩層
-
-4. 情境：大量改檔案名稱，並且遞增檔案id
-
-        指令：ls | awk '{print "mv "$1" "NR".txt"}' |sh
-
-5. 情境：大量改檔案名稱，取代檔案名稱中的某些字串(例如拿掉副檔名)
-
-        指令：rename 's/\.bak$//' *.bak
-
-6. 情境：大量改檔案名稱，大寫換小寫
-
-        指令：rename 'y/A-Z/a-z/' *
-        [更多關於rename](http://www.computerhope.com/unix/rename.htm)
-
 
 7. 情境：檢查特定service是否執行中
 
@@ -46,14 +29,6 @@ Linux-tips
         指令二：echo $SHELL
         指令三：env
 
-11. 情境：字串結合、調整
-
-        指令：echo {{1,2,3}1,2,3}
-
-12. 情境：字串結合、調整
-
-        指令：echo fi{one,two,red,blue}sh
-
 13. 情境：檢查指令是否執行成功
 
         腳本：
@@ -64,36 +39,6 @@ Linux-tips
             if [ $? -eq 0 ]; then
                 echo "successfully executed!" >> report.txt
             fi
-
-14. 情境：將目錄中所有檔案逐一處理（檔案名稱無規則性）
-
-        腳本：上面這個方法萬一資料夾裡面還有資料夾，可能就不符合預期行為。
-        for file in $(ls folder)
-        do 
-            python utils/submit.py folder/$file 
-        done
-
-        指令：find folder -type f -maxdepth=1 -exec CMD ‘{}’ \;
-
-15. 情境：在檔案第一行插入字串（例如csv檔要加表格名稱）
-
-        指令：(echo -n '<added text>\n'; cat test) > new_test
-
-16. 情境：大量改檔案編碼(big5 -> utf-8)
-
-        指令：遞迴改（不是真改）
-        convmv -r -f <from> -t <to> dir/
-
-        指令：遞迴改（真改）
-        convmv -r -f --notest -f <from> -t <to> dir/
-
-17. 情境：大檔案切割，切成多個小檔案
-
-        指令：split --bytes=1024m bigfile.iso file_prefix_
-
-18. 情境：結合小檔案變成大檔案
-
-        指令：cat small_file_* > joined_file.iso
 
 19. 情境：列出當前目錄所有檔案容量
 
@@ -124,6 +69,64 @@ Linux-tips
 24. 情境：列出所有已安裝套件 (Debian)
 
         指令：dpkg --get-selections > inistalled_packages.txt
-        
 
+### 文字編輯
 
+2. 情境：去除檔案中惱人的^M符號。(注意，^M要打ctrl+v及ctrl+m才會出現。)
+
+        指令一：sed -i -e 's/^M//g' file
+        指令二：dos2unix file // 這個符號多半是因為Windows上面編輯的檔案移到Unix系統上在編輯的時候會遇到，使用 dos2unix 可以直接轉換。
+        指令三：perl -p -i -e 's/\r\n$/\n/g' my_file.txt
+
+11. 情境：字串結合、調整
+
+        指令：echo {{1,2,3}1,2,3}
+
+12. 情境：字串結合、調整
+
+        指令：echo fi{one,two,red,blue}sh
+
+15. 情境：在檔案第一行插入字串（例如csv檔要加表格名稱）
+
+        指令：(echo -n '<added text>\n'; cat test) > new_test
+
+16. 情境：大量改檔案編碼(big5 -> utf-8)
+
+        指令：遞迴改（不是真改）
+        convmv -r -f <from> -t <to> dir/
+
+        指令：遞迴改（真改）
+        convmv -r -f --notest -f <from> -t <to> dir/
+
+### 檔案處理
+
+4. 情境：大量改檔案名稱，並且遞增檔案id
+
+        指令：ls | awk '{print "mv "$1" "NR".txt"}' |sh
+
+5. 情境：大量改檔案名稱，取代檔案名稱中的某些字串(例如拿掉副檔名)
+
+        指令：rename 's/\.bak$//' *.bak
+
+6. 情境：大量改檔案名稱，大寫換小寫
+
+        指令：rename 'y/A-Z/a-z/' *
+        [更多關於rename](http://www.computerhope.com/unix/rename.htm)
+
+14. 情境：將目錄中所有檔案逐一處理（檔案名稱無規則性）
+
+        腳本：上面這個方法萬一資料夾裡面還有資料夾，可能就不符合預期行為。
+        for file in $(ls folder)
+        do 
+            python utils/submit.py folder/$file 
+        done
+
+        指令：find folder -type f -maxdepth=1 -exec CMD ‘{}’ \;
+
+17. 情境：大檔案切割，切成多個小檔案
+
+        指令：split --bytes=1024m bigfile.iso file_prefix_
+
+18. 情境：結合小檔案變成大檔案
+
+        指令：cat small_file_* > joined_file.iso
