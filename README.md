@@ -6,6 +6,7 @@
 		指令：df|awk '{sum += $4} END {print sum}'
 
 	[更多關於df](http://man7.org/linux/man-pages/man1/df.1.html)
+	
 	[更多關於awk](http://linux.vbird.org/linux_basic/0330regularex.php#awk)
 
 2. 情境：看資料夾結構
