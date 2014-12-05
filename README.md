@@ -5,14 +5,20 @@
 
 		指令：df|awk '{sum += $4} END {print sum}'
 
+	[更多關於df](http://man7.org/linux/man-pages/man1/df.1.html)
+	[更多關於awk](http://linux.vbird.org/linux_basic/0330regularex.php#awk)
+
 2. 情境：看資料夾結構
 
 		指令：tree -d // 只列出資料夾 tree -L 2 只列出最多兩層
+
+	[更多關於tree](http://linux.die.net/man/1/tree)
 
 3. 情境：檢查特定service是否執行中
 
 		指令：ps aux | grep -v grep | grep service_name
 
+	[更多關於ps](http://linux.vbird.org/linux_basic/0440processcontrol.php#ps)
 4. 情境：自訂時間戳記(例如三個月前)
 
 		指令：date --date='-3 month' +%Y-%m`
