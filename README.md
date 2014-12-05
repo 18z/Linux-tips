@@ -3,7 +3,7 @@
 ### 系統管理
 1. 情境：計算硬碟上所有filesystem剩餘之空間。
 
-	>指令：[df](http://man7.org/linux/man-pages/man1/df.1.html)|[awk](http://linux.vbird.org/linux_basic/0330regularex.php#awk) '{sum += $4} END {print sum}'
+	>指令：[df](http://man7.org/linux/man-pages/man1/df.1.html) | [awk](http://linux.vbird.org/linux_basic/0330regularex.php#awk) '{sum += $4} END {print sum}'
 
 2. 情境：看資料夾結構
 
