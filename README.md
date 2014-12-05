@@ -30,13 +30,14 @@
 7. 情境：檢查指令是否執行成功
 
 	>腳本：
-	>ping 8.8.8.8
-
-	># check if the ping command was successfully executed. 
-	>	# (0 means yes, 1 means no)
-	>	if [ $? -eq 0 ]; then
-	>		echo "successfully executed!" >> report.txt
-	>	fi
+		
+		ping 8.8.8.8
+		
+		# check if the ping command was successfully executed. 
+		# (0 means yes, 1 means no)
+		if [ $? -eq 0 ]; then
+			echo "successfully executed!" >> report.txt
+		fi
 
 8. 情境：列出當前目錄所有檔案容量
 
@@ -54,10 +55,11 @@
 11. 情境：檢查是否以root身份執行
 
 	>腳本：
-	>if [ "$UID" -ne "$ROOT_UID" ]
-	>then
-	>	echo "執行身份非root"
-	>fi
+
+		if [ "$UID" -ne "$ROOT_UID" ]
+		then
+			echo "執行身份非root"
+		fi
 
 12. 情境：找出 /var 目錄下最大檔案前十名
 
@@ -69,18 +71,21 @@
 
 14. 情境：使得某些特定ip透過特定gw出去
 
-	>arr=("ip1" "ip2")
-
-	>for i in ${arr[*]}
-	>do
-	>	route add -host $i gw ip
-	>done
+	>腳本：
+	
+		arr=("ip1" "ip2")
+		for i in ${arr[*]}
+		do
+			route add -host $i gw ip
+		done
 
 ### 文字編輯
 1. 情境：去除檔案中惱人的^M符號。(注意，^M要打ctrl+v及ctrl+m才會出現。)
 
 	>指令一：sed -i -e 's/^M//g' file
+	
 	>指令二：dos2unix file  // 這個符號多半是因為Windows上面編輯的檔案移到Unix系統上在編輯的時候會遇到，使用 dos2unix 可以直接轉換。
+	
 	>指令三：perl -p -i -e 's/\r\n$/\n/g' my_file.txt
 
 2. 情境：字串結合、調整
@@ -119,10 +124,11 @@
 4. 情境：將目錄中所有檔案逐一處理（檔案名稱無規則性）
 
 	>腳本：上面這個方法萬一資料夾裡面還有資料夾，可能就不符合預期行為。
-	>for file in $(ls folder)
-	>do 
-	>	python utils/submit.py folder/$file 
-	>done
+	
+		for file in $(ls folder)
+		do 
+			python utils/submit.py folder/$file 
+		done
 	
 	>指令：find folder -type f -maxdepth=1 -exec CMD ‘{}’ \;
 
