@@ -3,7 +3,7 @@
 ### 系統管理
 1. 情境：計算硬碟上所有filesystem剩餘之空間。
 
-	>指令：[df](http://man7.org/linux/man-pages/man1/df.1.html) | [awk](http://linux.vbird.org/linux_basic/0330regularex.php#awk) '{sum += $4} END {print sum}'
+	>bash 指令：[df](http://man7.org/linux/man-pages/man1/df.1.html) | grep ^/dev/ | [awk](http://linux.vbird.org/linux_basic/0330regularex.php#awk) '{sum += $4} END {print sum " bytes left" }'
 
 2. 情境：看資料夾結構
 
@@ -29,7 +29,7 @@
 
 7. 情境：檢查指令是否執行成功
 
-	>腳本：
+	>腳本1：
 		
 		ping 8.8.8.8
 		
@@ -38,6 +38,11 @@
 		if [ $? -eq 0 ]; then
 			echo "successfully executed!" >> report.txt
 		fi
+
+	>腳本2：
+		
+		# this one is shorter
+		ping 8.8.8.8 && echo "successfully executed!" >> report.txt
 
 8. 情境：列出當前目錄所有檔案容量
 
@@ -54,7 +59,7 @@
 
 11. 情境：檢查是否以root身份執行
 
-	>腳本：
+	>腳本 1：
 
 		if [ "$UID" -ne "$ROOT_UID" ]
 		then
