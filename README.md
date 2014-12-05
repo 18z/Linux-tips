@@ -139,3 +139,11 @@
 6. 情境：結合小檔案變成大檔案
 
 	>指令：cat small_file_* > joined_file.iso
+
+7. 情境：顯示目錄底下資料夾大小並排序
+
+	>指令： du -B K /dir --max-depth=1 | sort -g	//KB為單位
+	
+	>指令： du -B M /dir --max-depth=1 | sort -g	//MB為單位
+	
+	>指令： du -B G /dir --max-depth=1 | sort -g	//GB為單位
