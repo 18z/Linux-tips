@@ -87,6 +87,14 @@
 			route add -host $i gw ip
 		done
 
+15. 情境：ls 列出的檔名需要跳脫(escape)時，自動幫你用引號包起來
+
+	>指令：ls --quoting-style=shell
+
+		# 結果例如： (可以 man ls 查看更多 style)
+		'!this$file%contain&control(characters)~'  'this file contain whitespace char'  tmp.txt
+
+
 ### 文字編輯
 1. 情境：去除檔案中惱人的^M符號。(注意，^M要打ctrl+v及ctrl+m才會出現。)
 
