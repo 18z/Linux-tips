@@ -23,7 +23,7 @@
 
 6. 情境：查看shell環境
 
-	>指令一：ls -l `which sh`
+	>指令一：ls -l \`which sh\`
 	
 	>指令二：echo $SHELL
 	
