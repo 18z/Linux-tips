@@ -94,6 +94,17 @@
 		# 結果例如： (可以 man ls 查看更多 style)
 		'!this$file%contain&control(characters)~'  'this file contain whitespace char'  tmp.txt
 
+16. 情境：查看CPU核心數 (連 Intel HT 超執行緒技術所虛擬成兩倍個數也算在內)
+
+	>指令一：grep -c ^processor /proc/cpuinfo
+	>指令二：grep -Ec '^cpu[0-9]+ ' /proc/stat
+
+	// 常用來搭配 make 指令，寫在 shell script 中使用，以利加速建置。
+	>腳本：
+
+		cpu_cores="$(grep -c ^processor /proc/cpuinfo)"
+		make -j$(cpu_cores)
+
 
 ### 文字編輯
 1. 情境：去除檔案中惱人的^M符號。(注意，^M要打ctrl+v及ctrl+m才會出現。)
