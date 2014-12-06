@@ -19,12 +19,14 @@
 
 5. 情境：自動將公鑰傳送至遠端機器並寫入相關設定
 
-	>指令：ssh-copy-id -i ~/.ssh/(identity|id_dsa.pub|id_rsa.pub) username@ip
+	>指令：ssh-copy-id -i ~/.ssh/(identity | id_dsa.pub | id_rsa.pub) username@ip
 
 6. 情境：查看shell環境
 
 	>指令一：ls -l `which sh`
+	
 	>指令二：echo $SHELL
+	
 	>指令三：env
 
 7. 情境：檢查指令是否執行成功
@@ -51,6 +53,7 @@
 9. 情境：持續觀察磁碟空間變化
 
 	>指令：while true; do clear; df -h; sleep 3; done
+	
 	>指令：watch -n3 df -h
 
 10. 情境：加入既有ssh private key
@@ -89,7 +92,9 @@
 
 	>指令一：sed -i -e 's/^M//g' file
 	
-	>指令二：dos2unix file  // 這個符號多半是因為Windows上面編輯的檔案移到Unix系統上在編輯的時候會遇到，使用 dos2unix 可以直接轉換。
+	>指令二：dos2unix file  
+	
+	// 這個符號多半是因為Windows上面編輯的檔案移到Unix系統上在編輯的時候會遇到，使用 dos2unix 可以直接轉換。
 	
 	>指令三：perl -p -i -e 's/\r\n$/\n/g' my_file.txt
 
@@ -116,7 +121,7 @@
 ### 檔案處理
 1. 情境：大量改檔案名稱，並且遞增檔案id
 
-	>指令：ls | awk '{print "mv "$1" "NR".txt"}' |sh
+	>指令：ls | awk '{print "mv "$1" "NR".txt"}' | sh
 
 2. 情境：大量改檔案名稱，取代檔案名稱中的某些字串(例如拿掉副檔名)
 
