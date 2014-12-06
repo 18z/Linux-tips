@@ -106,6 +106,15 @@
 	
 	>指令三：perl -p -i -e 's/\r\n$/\n/g' my_file.txt
 
+	>指令四：若已經用 vim 開啟的話，可執行下列指令於 vim 裡：
+	// 參考 [File format - Vim Tips Wiki](http://vim.wikia.com/wiki/File_format)
+
+		:update            # 存儲任何修改。
+		:e ++ff=dos        # 強制以 DOS 檔案格式，重新編輯檔案。
+		:setlocal ff=unix  # 設定此 buffer 將只會以 LF 換行字元 (UNIX 檔案格式) 來寫入檔案。
+		:w                 # 以 UNIX 檔案格式將  buffer 寫入檔案。
+
+
 2. 情境：字串結合、調整
 
 	>指令：echo {{1,2,3}1,2,3}
