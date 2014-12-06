@@ -1,7 +1,7 @@
 ## Linux-tips
 
 ### 系統管理
-1. 情境：計算硬碟上所有filesystem剩餘之空間。
+1. 情境：計算硬碟上以/dev/開頭之filesystem剩餘空間。
 
 	>bash 指令：[df](http://man7.org/linux/man-pages/man1/df.1.html) | grep ^/dev/ | [awk](http://linux.vbird.org/linux_basic/0330regularex.php#awk) '{sum += $4} END {print sum " bytes left" }'
 
