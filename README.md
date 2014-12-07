@@ -87,6 +87,25 @@
 			route add -host $i gw ip
 		done
 
+15. 情境：ls 列出的檔名需要跳脫(escape)時，自動幫你用引號包起來
+
+	>指令：ls --quoting-style=shell
+
+		# 結果例如： (可以 man ls 查看更多 style)
+		'!this$file%contain&control(characters)~'  'this file contain whitespace char'  tmp.txt
+
+16. 情境：查看CPU核心數 (連 Intel HT 超執行緒技術所虛擬成兩倍個數也算在內)
+
+	>指令一：grep -c ^processor /proc/cpuinfo
+	>指令二：grep -Ec '^cpu[0-9]+ ' /proc/stat
+
+	// 常用來搭配 make 指令，寫在 shell script 中使用，以利加速建置。
+	>腳本：
+
+		cpu_cores="$(grep -c ^processor /proc/cpuinfo)"
+		make -j$(cpu_cores)
+
+
 ### 文字編輯
 1. 情境：去除檔案中惱人的^M符號。(注意，^M要打ctrl+v及ctrl+m才會出現。)
 
@@ -97,6 +116,15 @@
 	// 這個符號多半是因為Windows上面編輯的檔案移到Unix系統上在編輯的時候會遇到，使用 dos2unix 可以直接轉換。
 	
 	>指令三：perl -p -i -e 's/\r\n$/\n/g' my_file.txt
+
+	>指令四：若已經用 vim 開啟的話，可執行下列指令於 vim 裡：
+	// 參考 [File format - Vim Tips Wiki](http://vim.wikia.com/wiki/File_format)
+
+		:update            # 存儲任何修改。
+		:e ++ff=dos        # 強制以 DOS 檔案格式，重新編輯檔案。
+		:setlocal ff=unix  # 設定此 buffer 將只會以 LF 換行字元 (UNIX 檔案格式) 來寫入檔案。
+		:w                 # 以 UNIX 檔案格式將  buffer 寫入檔案。
+
 
 2. 情境：字串結合、調整
 
