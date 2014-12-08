@@ -106,6 +106,18 @@
 		make -j$(cpu_cores)
 
 
+17. 情境：釋出記憶體快取空間
+
+    >指令一：sync; sudo sysctl vm.drop_caches={1, 2, 3, 4}
+
+    > 1 -> pagecache
+    > 2 -> slab cache
+    > 3 -> pagecache & slab cache
+    > 4 -> disable
+
+    詳見 https://www.kernel.org/doc/Documentation/sysctl/vm.txt
+
+
 ### 文字編輯
 1. 情境：去除檔案中惱人的^M符號。(注意，^M要打ctrl+v及ctrl+m才會出現。)
 
