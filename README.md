@@ -68,7 +68,12 @@
 		then
 			echo "執行身份非root"
 		fi
-
+	>腳本2：
+	
+		if [ `whoami` != "root" ];
+		then
+			echo "I am not root"
+		fi
 12. 情境：找出 /var 目錄下最大檔案前十名
 
 	>指令：du -a /var | sort -n -r | head -n 10
@@ -116,8 +121,37 @@
     > 4 -> disable
 
     詳見 https://www.kernel.org/doc/Documentation/sysctl/vm.txt
+18. 情境: 使用ls列出最新的檔名列在最下面
 
+    >指令一：ls -sort
+	
+19. 切換該terminal的訊息顯示語言為英文 (非永久變更，僅限該登入session)
 
+     > 設定
+
+		$ export LC_ALL=C;LANG=C;LANGUAGE=en_US
+
+     > 確認
+
+		$ locale
+		LANG=C
+		LANGUAGE=en_US
+		LC_CTYPE="C"
+		LC_NUMERIC="C"
+		LC_TIME="C"
+		LC_COLLATE="C"
+		LC_MONETARY="C"
+		LC_MESSAGES="C"
+		LC_PAPER="C"
+		LC_NAME="C"
+		LC_ADDRESS="C"
+		LC_TELEPHONE="C"
+		LC_MEASUREMENT="C"
+		LC_IDENTIFICATION="C"
+		LC_ALL=C
+
+    
+    
 ### 文字編輯
 1. 情境：去除檔案中惱人的^M符號。(注意，^M要打ctrl+v及ctrl+m才會出現。)
 
