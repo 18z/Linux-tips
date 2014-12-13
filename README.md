@@ -74,6 +74,7 @@
 		then
 			echo "I am not root"
 		fi
+
 12. 情境：找出 /var 目錄下最大檔案前十名
 
 	>指令：du -a /var | sort -n -r | head -n 10
@@ -105,6 +106,7 @@
 	>指令二：grep -Ec '^cpu[0-9]+ ' /proc/stat
 
 	// 常用來搭配 make 指令，寫在 shell script 中使用，以利加速建置。
+	
 	>腳本：
 
 		cpu_cores="$(grep -c ^processor /proc/cpuinfo)"
@@ -113,25 +115,24 @@
 
 17. 情境：釋出記憶體快取空間
 
-    >指令一：sync; sudo sysctl vm.drop_caches={1, 2, 3, 4}
+	>指令一：sync; sudo sysctl vm.drop_caches={1, 2, 3, 4}
 
-    > 1 -> pagecache
-    > 2 -> slab cache
-    > 3 -> pagecache & slab cache
-    > 4 -> disable
+    	> 1 -> pagecache
+    	> 2 -> slab cache
+    	> 3 -> pagecache & slab cache
+    	> 4 -> disable
 
-    詳見 https://www.kernel.org/doc/Documentation/sysctl/vm.txt
+    	詳見 https://www.kernel.org/doc/Documentation/sysctl/vm.txt
+
 18. 情境: 使用ls列出最新的檔名列在最下面
 
-    >指令一：ls -sort
+    	>指令：ls -sort
 	
 19. 切換該terminal的訊息顯示語言為英文 (非永久變更，僅限該登入session)
 
-     > 設定
+	>指令： $ export LC_ALL=C;LANG=C;LANGUAGE=en_US
 
-		$ export LC_ALL=C;LANG=C;LANGUAGE=en_US
-
-     > 確認
+     	> 輸入locale進行確認：
 
 		$ locale
 		LANG=C
@@ -191,6 +192,7 @@
 
 	>指令：遞迴改（真改）
 	>convmv -r -f --notest -f <from> -t <to> dir/
+	
 6. 情境：一次用grep查詢2個以上關鍵字
 
 	>指令: grep -E '(foo|bar)'
@@ -244,6 +246,7 @@
 	>指令： du -B M /dir --max-depth=1 | sort -g	//MB為單位
 	
 	>指令： du -B G /dir --max-depth=1 | sort -g	//GB為單位
+	
 8. 情境: 將目錄下所有的檔案製作MD5(遞迴走訪)
 
 	>指令: find . -type f -exec md5sum {} \;
