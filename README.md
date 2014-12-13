@@ -3,15 +3,15 @@
 ### 系統管理
 1. 情境：計算硬碟上以/dev/開頭之filesystem剩餘空間。
 
-	>bash 指令：[df](http://man7.org/linux/man-pages/man1/df.1.html) | grep ^/dev/ | [awk](http://linux.vbird.org/linux_basic/0330regularex.php#awk) '{sum += $4} END {print sum " bytes left" }'
+	>bash 指令：df | grep ^/dev/ | awk '{sum += $4} END {print sum " bytes left" }'
 
 2. 情境：看資料夾結構
 
-	>指令：[tree](http://linux.die.net/man/1/tree) -d // 只列出資料夾 tree -L 2 只列出最多兩層
+	>指令：tree -d // 只列出資料夾 tree -L 2 只列出最多兩層
 
 3. 情境：檢查特定service是否執行中
 
-	>指令：[ps](http://linux.vbird.org/linux_basic/0440processcontrol.php#ps) aux | [grep](http://linux.vbird.org/linux_basic/0320bash.php#grep) -v grep | grep service_name
+	>指令：ps aux | grep -v grep | grep service_name
 
 4. 情境：自訂時間戳記(例如三個月前)
 
