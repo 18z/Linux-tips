@@ -191,6 +191,9 @@
 
 	>指令：遞迴改（真改）
 	>convmv -r -f --notest -f <from> -t <to> dir/
+6. 情境：一次用grep查詢2個以上關鍵字
+
+	>指令: grep -E '(foo|bar)'
 
 ### 檔案處理
 1. 情境：大量改檔案名稱，並且遞增檔案id
@@ -231,3 +234,6 @@
 	>指令： du -B M /dir --max-depth=1 | sort -g	//MB為單位
 	
 	>指令： du -B G /dir --max-depth=1 | sort -g	//GB為單位
+8. 情境: 將目錄下所有的檔案製作MD5(遞迴走訪)
+
+	>指令: find . -type f -exec md5sum {} \;
