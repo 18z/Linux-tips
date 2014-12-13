@@ -151,8 +151,10 @@
 		LC_IDENTIFICATION="C"
 		LC_ALL=C
 
+20. 用sudo執行上一個指令
     
-    
+	>指令： $ sudo !!
+
 ### 文字編輯
 1. 情境：去除檔案中惱人的^M符號。(注意，^M要打ctrl+v及ctrl+m才會出現。)
 
