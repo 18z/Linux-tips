@@ -195,6 +195,16 @@
 
 	>指令: grep -E '(foo|bar)'
 
+7. 情境: 字串全部自動改成大(小)寫
+
+	>大寫 
+
+	    $ echo TeSt | awk '{ print toupper($_) }'
+
+	>小寫
+
+	    $ echo TeSt | awk '{ print tolower($_) }'
+
 ### 檔案處理
 1. 情境：大量改檔案名稱，並且遞增檔案id
 
