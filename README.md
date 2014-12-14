@@ -265,6 +265,4 @@
 		00100000
 10. 情境: 將1.png ~ 10.png 更名為001.png ~ 010.png
 
-	>指令
-	    
-		$ for i in `seq 1 10`; do mv $i.png `printf "%03d" $i`.png; done 
+	>指令: $ for i in \`seq 1 10\`; do mv $i.png \`printf "%03d" $i\`.png; done 
