@@ -124,7 +124,7 @@
 
     	詳見 https://www.kernel.org/doc/Documentation/sysctl/vm.txt
 
-18. 情境: 使用ls列出最新的檔名列在最下面
+18. 情境： 使用ls列出最新的檔名列在最下面
 
     	>指令：ls -sort
 	
@@ -220,9 +220,9 @@
 	
 6. 情境：一次用grep查詢2個以上關鍵字
 
-	>指令: grep -E '(foo|bar)'
+	>指令： grep -E '(foo|bar)'
 
-7. 情境: 字串全部自動改成大(小)寫
+7. 情境： 字串全部自動改成大(小)寫
 
 	>大寫 
 
@@ -272,13 +272,13 @@
 	
 	>指令： du -B G /dir --max-depth=1 | sort -g	//GB為單位
 	
-8. 情境: 將目錄下所有的檔案製作MD5(遞迴走訪)
+8. 情境： 將目錄下所有的檔案製作MD5(遞迴走訪)
 
-	>指令: find . -type f -exec md5sum {} \;
+	>指令： find . -type f -exec md5sum {} \;
 
-9. 情境: 創建1M的空白檔案(內容全部填0)
+9. 情境： 創建1M的空白檔案(內容全部填0)
 
-	>指令: dd if=/dev/zero of=test.img bs=1M count=1
+	>指令： dd if=/dev/zero of=test.img bs=1M count=1
 
 	>檢查
 	     
@@ -287,10 +287,10 @@
 		*
 		00100000
 		
-10. 情境: 將1.png ~ 10.png 更名為001.png ~ 010.png
+10. 情境： 將1.png ~ 10.png 更名為001.png ~ 010.png
 
-	>指令: $ for i in \`seq 1 10\`; do mv $i.png \`printf "%03d" $i\`.png; done 
+	>指令： $ for i in \`seq 1 10\`; do mv $i.png \`printf "%03d" $i\`.png; done 
 	
-11. 情境: 將檔案名稱中空白部分以底線取代
+11. 情境： 將檔案名稱中空白部分以底線取代
 
 	>指令：rename 'y/ /_/' *
