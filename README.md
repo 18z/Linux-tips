@@ -151,9 +151,32 @@
 		LC_IDENTIFICATION="C"
 		LC_ALL=C
 
-20. 用sudo執行上一個指令
+20. 情境：用sudo執行上一個指令
     
 	>指令： $ sudo !!
+
+21. 情境：檢查 iptables log 是否有持續收錄
+
+	>腳本：
+
+		NO_LOG=0
+		NOWLOGS=$(grep iptables /var/log/messages| wc -l)
+		PASTLOGS=$(cat n_of_log)
+
+		if [ $NOWLOGS == $NO_LOG ]; then
+			echo "no business today"
+			
+		elif [ $NOWLOGS -eq $PASTLOGS ]; then
+			echo "no business during checking points"
+			
+		elif [ $NOWLOGS -gt $PASTLOGS ]; then
+			echo "New logs logged"
+			echo "$NOWLOGS" > n_of_log
+			
+		else
+			echo "refresh n_of_log"
+			echo "$NOWLOGS" > n_of_log
+		fi
 
 ### 文字編輯
 1. 情境：去除檔案中惱人的^M符號。(注意，^M要打ctrl+v及ctrl+m才會出現。)
