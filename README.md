@@ -178,6 +178,12 @@
 			echo "$NOWLOGS" > n_of_log
 		fi
 
+22. 情境: 替git管理的檔案上patch
+
+      >指令一: $ git apply --stat foo.patch	# 先確認上patch後，會做什麼修改
+
+      >指令二: $ git apply foo.patch		# 直接將patch打上去
+
 ### 文字編輯
 1. 情境：去除檔案中惱人的^M符號。(注意，^M要打ctrl+v及ctrl+m才會出現。)
 
