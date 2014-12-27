@@ -178,11 +178,11 @@
 			echo "$NOWLOGS" > n_of_log
 		fi
 
-22. 情境: 替git管理的檔案上patch
+22. 情境: 檔案若使用git進行版本控制，檔案進行修改後，可使用指令產生patch，後續可在其他的git repositary 加入patch檔的修正
 
-      >指令一: $ git apply --stat foo.patch	# 先確認上patch後，會做什麼修改
+      >指令一: $ git diff > foo.patch		# 產生patch檔案
 
-      >指令二: $ git apply foo.patch		# 直接將patch打上去
+      >指令二: $ git apply foo.patch		# 加入patch檔案的修正
       
 23. 情境：以SSH登入時出現「WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!」
 
