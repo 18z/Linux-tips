@@ -79,9 +79,11 @@
 
 	>指令：du -a /var | sort -n -r | head -n 10
 
-13. 情境：列出所有已安裝套件 (Debian)
+13. 情境：列出所有已安裝套件
 
-	>指令：dpkg --get-selections > inistalled_packages.txt
+	>指令一：dpkg --get-selections > inistalled_packages.txt (for debian)
+
+	>指令二：rpm -qa > inistalled_packages.txt (for fedora or centos)
 
 14. 情境：使得某些特定ip透過特定gw出去
 
