@@ -11,13 +11,17 @@
 
 	>指令：tree -d // 只列出資料夾 tree -L 2 只列出最多兩層
 
+	![scenario2](./images/scenario2.gif)
+
 3. 情境：檢查特定service是否執行中
 
 	>指令：ps aux | grep -v grep | grep service_name
 
 4. 情境：自訂時間戳記(例如三個月前)
 
-	>指令：date --date='-3 month' +%Y-%m`
+	>指令：date --date='-3 month' +%Y-%m
+
+	![scenario4](./images/scenario4.gif)
 
 5. 情境：自動將公鑰傳送至遠端機器並寫入相關設定
 
