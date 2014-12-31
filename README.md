@@ -188,10 +188,11 @@
 
 22. 情境: 檔案若使用git進行版本控制，檔案進行修改後，可使用指令產生patch，後續可在其他的git repositary 加入patch檔的修正
 
-      >指令一: $ git diff > foo.patch		# 產生patch檔案
+      	>指令一: $ git diff commit1 commit 2 > foo.patch	# 產生patch檔案
+	> 	 $ git apply foo.patch				# 加入patch檔案的修正
 
-      >指令二: $ git apply foo.patch		# 加入patch檔案的修正
-      
+   	![scenario22](./images/scenario22.gif)      
+
 23. 情境：以SSH登入時出現「WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!」
 
 	> 指令：ssh-keygen -R 伺服器端的IP或網址
