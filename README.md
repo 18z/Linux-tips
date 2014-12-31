@@ -134,13 +134,13 @@
 
 18. 情境：使用ls列出最新的檔名列在最下面
 
-    	>指令：ls -sort
+    >指令：ls -sort
 	
 19. 切換該terminal的訊息顯示語言為英文 (非永久變更，僅限該登入session)
 
 	>指令：export LC_ALL=C;LANG=C;LANGUAGE=en_US
 
-     	> 輸入locale進行確認：
+    > 輸入locale進行確認：
 
 		$ locale
 		LANG=C
