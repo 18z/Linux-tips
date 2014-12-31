@@ -37,7 +37,7 @@
 
 7. 情境：檢查指令是否執行成功
 
-	>腳本1：
+	>腳本一：
 		
 		ping 8.8.8.8
 		
@@ -47,7 +47,7 @@
 			echo "successfully executed!" >> report.txt
 		fi
 
-	>腳本2：
+	>腳本二：
 		
 		# this one is shorter
 		ping 8.8.8.8 && echo "successfully executed!" >> report.txt
@@ -68,13 +68,13 @@
 
 11. 情境：檢查是否以root身份執行
 
-	>腳本 1：
+	>腳本一：
 
 		if [ "$UID" -ne "$ROOT_UID" ]
 		then
 			echo "執行身份非root"
 		fi
-	>腳本2：
+	>腳本二：
 	
 		if [ `whoami` != "root" ];
 		then
@@ -123,7 +123,7 @@
 
 17. 情境：釋出記憶體快取空間
 
-	>指令一：sync; sudo sysctl vm.drop_caches={1, 2, 3, 4}
+	>指令：sync; sudo sysctl vm.drop_caches={1, 2, 3, 4}
 
     	> 1 -> pagecache
     	> 2 -> slab cache
@@ -132,13 +132,13 @@
 
     	詳見 https://www.kernel.org/doc/Documentation/sysctl/vm.txt
 
-18. 情境： 使用ls列出最新的檔名列在最下面
+18. 情境：使用ls列出最新的檔名列在最下面
 
     	>指令：ls -sort
 	
 19. 切換該terminal的訊息顯示語言為英文 (非永久變更，僅限該登入session)
 
-	>指令： $ export LC_ALL=C;LANG=C;LANGUAGE=en_US
+	>指令：export LC_ALL=C;LANG=C;LANGUAGE=en_US
 
      	> 輸入locale進行確認：
 
@@ -161,7 +161,7 @@
 
 20. 情境：用sudo執行上一個指令
     
-	>指令： $ sudo !!
+	>指令：sudo !!
 
 21. 情境：檢查 iptables log 是否有持續收錄
 
@@ -209,6 +209,7 @@
 	>指令三：perl -p -i -e 's/\r\n$/\n/g' my_file.txt
 
 	>指令四：若已經用 vim 開啟的話，可執行下列指令於 vim 裡：
+	
 	// 參考 [File format - Vim Tips Wiki](http://vim.wikia.com/wiki/File_format)
 
 		:update            # 存儲任何修改。
@@ -232,9 +233,11 @@
 5. 情境：大量改檔案編碼(big5 -> utf-8)
 
 	>指令：遞迴改（不是真改）
+	
 	>convmv -r -f <from> -t <to> dir/
 
 	>指令：遞迴改（真改）
+	
 	>convmv -r -f --notest -f <from> -t <to> dir/
 	
 6. 情境：一次用grep查詢2個以上關鍵字
@@ -243,13 +246,9 @@
 
 7. 情境： 字串全部自動改成大(小)寫
 
-	>大寫 
+	>大寫：echo TeSt | awk '{ print toupper($_) }'
 
-	    $ echo TeSt | awk '{ print toupper($_) }'
-
-	>小寫
-
-	    $ echo TeSt | awk '{ print tolower($_) }'
+	>小寫：echo TeSt | awk '{ print tolower($_) }'
 
 ### 檔案處理
 1. 情境：大量改檔案名稱，並且遞增檔案id
