@@ -186,10 +186,9 @@
 			echo "$NOWLOGS" > n_of_log
 		fi
 
-22. 情境: 檔案若使用git進行版本控制，檔案進行修改後，可使用指令產生patch，後續可在其他的git repositary 加入patch檔的修正
+22. 情境：檔案若使用git進行版本控制，檔案進行修改後，可使用指令產生patch，後續可在其他的git repositary 加入patch檔的修正
 
-      	>指令一: $ git diff commit1 commit 2 > foo.patch	# 產生patch檔案
-	> 	 $ git apply foo.patch				# 加入patch檔案的修正
+    >指令：git diff commit1 commit 2 > foo.patch
 
    	![scenario22](./images/scenario22.gif)      
 
