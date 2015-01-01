@@ -250,6 +250,14 @@
 
 	>小寫：echo TeSt | awk '{ print tolower($_) }'
 
+8. 情境： 遞迴搜尋資料夾，但是忽略符合格式的檔案(例如 *.pyc)
+
+    >grep -r keyword --exclude '*.pyc' target_folder/
+
+    範例：
+
+    >grep -r "import os" --exclude '*.pyc' my_project/
+
 ### 檔案處理
 1. 情境：大量改檔案名稱，並且遞增檔案id
 
