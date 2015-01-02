@@ -74,6 +74,7 @@
 		then
 			echo "執行身份非root"
 		fi
+		
 	>腳本二：
 	
 		if [ `whoami` != "root" ];
@@ -125,23 +126,23 @@
 
 	>指令：sync; sudo sysctl vm.drop_caches={1, 2, 3, 4}
 
-    	> 1 -> pagecache
-    	> 2 -> slab cache
-    	> 3 -> pagecache & slab cache
-    	> 4 -> disable
+		1 -> pagecache
+		2 -> slab cache
+		3 -> pagecache & slab cache
+		4 -> disable
 
-    	詳見 https://www.kernel.org/doc/Documentation/sysctl/vm.txt
+		詳見 https://www.kernel.org/doc/Documentation/sysctl/vm.txt
 
 18. 情境：使用ls列出最新的檔名列在最下面
 
-    >指令：ls -sort
+	>指令：ls -sort
 	
 19. 切換該terminal的訊息顯示語言為英文 (非永久變更，僅限該登入session)
 
 	>指令：export LC_ALL=C;LANG=C;LANGUAGE=en_US
 
-    > 輸入locale進行確認：
-
+	> 輸入locale進行確認：
+	
 		$ locale
 		LANG=C
 		LANGUAGE=en_US
@@ -184,6 +185,7 @@
 		else
 			echo "refresh n_of_log"
 			echo "$NOWLOGS" > n_of_log
+		
 		fi
 
 22. 情境：檔案若使用git進行版本控制，檔案進行修改後，可使用指令產生patch，後續可在其他的git repositary 加入patch檔的修正
@@ -242,15 +244,15 @@
 	
 6. 情境：一次用grep查詢2個以上關鍵字
 
-	>指令： grep -E '(foo|bar)'
+	>指令：grep -E '(foo|bar)'
 
-7. 情境： 字串全部自動改成大(小)寫
+7. 情境：字串全部自動改成大(小)寫
 
 	>大寫：echo TeSt | awk '{ print toupper($_) }'
 
 	>小寫：echo TeSt | awk '{ print tolower($_) }'
 
-8. 情境： 遞迴搜尋資料夾，但是忽略符合格式的檔案(例如 *.pyc)
+8. 情境：遞迴搜尋資料夾，但是忽略符合格式的檔案(例如 *.pyc)
 
     >grep -r keyword --exclude '*.pyc' target_folder/
 
@@ -292,19 +294,19 @@
 
 7. 情境：顯示目錄底下資料夾大小並排序
 
-	>指令： du -B K /dir --max-depth=1 | sort -g	//KB為單位
+	>指令：du -B K /dir --max-depth=1 | sort -g	//KB為單位
 	
-	>指令： du -B M /dir --max-depth=1 | sort -g	//MB為單位
+	>指令：du -B M /dir --max-depth=1 | sort -g	//MB為單位
 	
-	>指令： du -B G /dir --max-depth=1 | sort -g	//GB為單位
+	>指令：du -B G /dir --max-depth=1 | sort -g	//GB為單位
 	
 8. 情境： 將目錄下所有的檔案製作MD5(遞迴走訪)
 
-	>指令： find . -type f -exec md5sum {} \;
+	>指令：find . -type f -exec md5sum {} \;
 
-9. 情境： 創建1M的空白檔案(內容全部填0)
+9. 情境：創建1M的空白檔案(內容全部填0)
 
-	>指令： dd if=/dev/zero of=test.img bs=1M count=1
+	>指令：dd if=/dev/zero of=test.img bs=1M count=1
 
 	>檢查
 	     
@@ -313,10 +315,10 @@
 		*
 		00100000
 		
-10. 情境： 將1.png ~ 10.png 更名為001.png ~ 010.png
+10. 情境：將1.png ~ 10.png 更名為001.png ~ 010.png
 
-	>指令： $ for i in \`seq 1 10\`; do mv $i.png \`printf "%03d" $i\`.png; done 
+	>指令：$ for i in \`seq 1 10\`; do mv $i.png \`printf "%03d" $i\`.png; done 
 	
-11. 情境： 將檔案名稱中空白部分以底線取代
+11. 情境：將檔案名稱中空白部分以底線取代
 
 	>指令：rename 'y/ /_/' *
