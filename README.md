@@ -116,6 +116,7 @@
 16. 情境：查看CPU核心數 (連 Intel HT 超執行緒技術所虛擬成兩倍個數也算在內)
 
 	>指令一：grep -c ^processor /proc/cpuinfo
+	
 	>指令二：grep -Ec '^cpu[0-9]+ ' /proc/stat
 
 	// 常用來搭配 make 指令，寫在 shell script 中使用，以利加速建置。
