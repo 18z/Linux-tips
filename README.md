@@ -1,7 +1,7 @@
 ## Linux-tips
 
 ### 系統管理
-1. 情境：計算硬碟上以/dev/開頭之filesystem剩餘空間。
+1. 情境：計算硬碟上以/dev/開頭之filesystem剩餘空間
 
 	>bash 指令：df | grep ^/dev/ | awk '{sum += $4} END {print sum " bytes left" }'
 
@@ -39,10 +39,11 @@
 
 	>腳本一：
 		
-		ping 8.8.8.8
+		ping -c 1 8.8.8.8
 		
 		# check if the ping command was successfully executed. 
 		# (0 means yes, 1 means no)
+		
 		if [ $? -eq 0 ]; then
 			echo "successfully executed!" >> report.txt
 		fi
@@ -50,7 +51,8 @@
 	>腳本二：
 		
 		# this one is shorter
-		ping 8.8.8.8 && echo "successfully executed!" >> report.txt
+		
+		ping -c 1 8.8.8.8 && echo "successfully executed!" >> report.txt
 
 8. 情境：列出當前目錄所有檔案容量
 
@@ -70,7 +72,7 @@
 
 	>腳本一：
 
-		if [ "$UID" -ne "$ROOT_UID" ]
+		if [ "$UID" -ne "$ROOT_UID" ];
 		then
 			echo "執行身份非root"
 		fi
