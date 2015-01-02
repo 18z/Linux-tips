@@ -19,7 +19,7 @@
 
 	>指令：ps aux | grep -v grep | grep service_name
 
-4. 情境：自訂時間戳記(例如三個月前)
+4. 情境：自訂時間戳記 (例如三個月前)
 
 	>指令：date --date='-3 month' +%Y-%m
 
@@ -110,8 +110,8 @@
 
 	>指令：ls --quoting-style=shell
 
-		# 結果例如： (可以 man ls 查看更多 style)
-		'!this$file%contain&control(characters)~'  'this file contain whitespace char'  tmp.txt
+	// 結果例如： (可以 man ls 查看更多 style)
+	// '!this$file%contain&control(characters)~'  'this file contain whitespace char'  tmp.txt
 
 16. 情境：查看CPU核心數 (連 Intel HT 超執行緒技術所虛擬成兩倍個數也算在內)
 
@@ -130,12 +130,12 @@
 
 	>指令：sync; sudo sysctl vm.drop_caches={1, 2, 3, 4}
 
-		1 -> pagecache
-		2 -> slab cache
-		3 -> pagecache & slab cache
-		4 -> disable
+	// 1 -> pagecache
+	// 2 -> slab cache
+	// 3 -> pagecache & slab cache
+	// 4 -> disable
 
-		詳見 https://www.kernel.org/doc/Documentation/sysctl/vm.txt
+	// 詳見 https://www.kernel.org/doc/Documentation/sysctl/vm.txt
 
 18. 情境：使用ls列出最新的檔名列在最下面
 
@@ -145,7 +145,7 @@
 
 	>指令：export LC_ALL=C;LANG=C;LANGUAGE=en_US
 
-	> 輸入locale進行確認：
+	// 輸入locale進行確認：
 	
 		$ locale
 		LANG=C
@@ -200,7 +200,7 @@
 
 23. 情境：以SSH登入時出現「WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!」
 
-	> 指令：ssh-keygen -R 伺服器端的IP或網址
+	>指令：ssh-keygen -R 伺服器端的IP或網址
 	
 
 ### 文字編輯
@@ -238,13 +238,13 @@
 
 5. 情境：大量改檔案編碼(big5 -> utf-8)
 
-	>指令：遞迴改（不是真改）
+	>指令：convmv -r -f <from> -t <to> dir/
 	
-	>convmv -r -f <from> -t <to> dir/
+	// 遞迴改（不是真改）
 
-	>指令：遞迴改（真改）
+	>指令：convmv -r -f --notest -f <from> -t <to> dir/
 	
-	>convmv -r -f --notest -f <from> -t <to> dir/
+	// 遞迴改（真改）
 	
 6. 情境：一次用grep查詢2個以上關鍵字
 
@@ -252,17 +252,19 @@
 
 7. 情境：字串全部自動改成大(小)寫
 
-	>大寫：echo TeSt | awk '{ print toupper($_) }'
+	>指令一：echo TeSt | awk '{ print toupper($_) }'
+	
+	// 全改大寫
 
-	>小寫：echo TeSt | awk '{ print tolower($_) }'
+	>指令二：echo TeSt | awk '{ print tolower($_) }'
 
+	// 全改小寫
+	
 8. 情境：遞迴搜尋資料夾，但是忽略符合格式的檔案(例如 *.pyc)
 
-    >grep -r keyword --exclude '*.pyc' target_folder/
+    >指令：grep -r keyword --exclude '*.pyc' target_folder/
 
-    範例：
-
-    >grep -r "import os" --exclude '*.pyc' my_project/
+    // 範例：grep -r "import os" --exclude '*.pyc' my_project/
 
 ### 檔案處理
 1. 情境：大量改檔案名稱，並且遞增檔案id
@@ -312,7 +314,7 @@
 
 	>指令：dd if=/dev/zero of=test.img bs=1M count=1
 
-	>檢查
+	// 檢查
 	     
 		$ hexdump -C test.img 
 		00000000  00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
