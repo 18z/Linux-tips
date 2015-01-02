@@ -3,13 +3,15 @@
 ### 系統管理
 1. 情境：計算硬碟上以/dev/開頭之filesystem剩餘空間
 
-	>bash 指令：df | grep ^/dev/ | awk '{sum += $4} END {print sum " bytes left" }'
+	>指令：df | grep ^/dev/ | awk '{sum += $4} END {print sum " bytes left" }'
 
 	![scenario1](./images/scenario1.gif)
 
 2. 情境：看資料夾結構
 
-	>指令：tree -d // 只列出資料夾 tree -L 2 只列出最多兩層
+	>指令：tree -d 
+
+	// 只列出資料夾 tree -L 2 只列出最多兩層
 
 	![scenario2](./images/scenario2.gif)
 
