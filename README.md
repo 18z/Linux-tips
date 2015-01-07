@@ -106,6 +106,8 @@
 			route add -host $i gw ip
 		done
 
+	>指令：route add -net x.x.x.x netmask x.x.x.x gw x.x.x.x
+
 15. 情境：ls 列出的檔名需要跳脫(escape)時，自動幫你用引號包起來
 
 	>指令：ls --quoting-style=shell
