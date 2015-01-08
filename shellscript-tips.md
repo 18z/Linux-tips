@@ -25,3 +25,9 @@
     ```
     https://github.com/caarlos0/shell-travis-build
     ```
+
+5. vim plugin - bash support
+
+    ```
+    https://github.com/vim-scripts/bash-support.vim
+    ```
