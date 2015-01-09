@@ -421,3 +421,10 @@
 	```bash
 	指令：rename 'y/ /_/' *
 	```
+
+12. 情境：將 MySQL 資料庫內容輸出至 csv 檔
+
+	```bash
+	指令：mysql -u username -p -B -e "show columns from table;" | sed "s/'/\'/;s/\t/\",\"/g;s/^/\"/;s/$/\"/;s/\n//g" >> test.csv
+	```
+
