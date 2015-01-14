@@ -442,3 +442,34 @@
 	# 執行結果：產出 file.sh.bak 檔
 
 	```
+
+14. 情境：懶人解壓縮法
+
+	```bash
+	腳本：請直接加在 .bashrc 中，並執行 source ~/.bashrc。
+	
+	function extract()      # Handy Extract Program
+	{
+		if [ -f $1 ] ; then
+			case $1 in
+				*.tar.bz2)   tar xvjf $1     ;;  
+				*.tar.gz)    tar xvzf $1     ;;  
+				*.bz2)       bunzip2 $1      ;;  
+				*.rar)       unrar x $1      ;;  
+				*.gz)        gunzip $1       ;;  
+				*.tar)       tar xvf $1      ;;  
+				*.tbz2)      tar xvjf $1     ;;  
+				*.tgz)       tar xvzf $1     ;;  
+				*.zip)       unzip $1        ;;  
+				*.Z)         uncompress $1   ;;  
+				*.7z)        7z x $1         ;;  
+				*)           echo "'$1' cannot be extracted via >extract<" ;;
+			esac
+		else
+			echo "'$1' is not a valid file!"
+		fi
+	}
+
+	# 使用方法：$ extract file.壓縮檔副檔名
+
+	```
