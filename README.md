@@ -428,3 +428,17 @@
 	指令：mysql -u username -p -B -e "show columns from table;" | sed "s/'/\'/;s/\t/\",\"/g;s/^/\"/;s/$/\"/;s/\n//g" >> test.csv
 	```
 
+13. 情境：快速備份檔案
+
+	```bash
+	腳本：請直接加在 .bashrc 中，並執行 source ~/.bashrc。
+	
+	function backup()
+	{
+    	cp $1 $1.bak
+	}
+
+	# 使用方法：$ backup file.sh
+	# 執行結果：產出 file.sh.bak 檔
+
+	```
