@@ -41,7 +41,7 @@
 6. 情境：查看shell環境
 
 	```bash
-	指令一：ls -l \`which sh\`
+	指令一：ls -l `which sh`
 	
 	指令二：echo $SHELL
 	
@@ -413,7 +413,7 @@
 10. 情境：將1.png ~ 10.png 更名為001.png ~ 010.png
 
 	```bash
-	指令：$ for i in \`seq 1 10\`; do mv $i.png \`printf "%03d" $i\`.png; done 
+	指令：$ for i in `seq 1 10`; do mv $i.png \`printf "%03d" $i\`.png; done 
 	```
 
 11. 情境：將檔案名稱中空白部分以底線取代
