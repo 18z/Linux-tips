@@ -335,6 +335,14 @@
 	// 範例：grep -r "import os" --exclude '*.pyc' my_project/
 	```
 
+9. 情境：迅速撈出檔案中的特定行數
+
+    例如：迅速撈出第 16 行內容
+
+    ```bash
+    指令：nl index.html | grep "^\s*16" | head -n 1
+    ```
+
 ### 檔案處理
 1. 情境：大量改檔案名稱，並且遞增檔案id
 
