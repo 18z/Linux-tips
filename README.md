@@ -241,7 +241,7 @@
 		echo "$NOWLOGS" > n_of_log
 	
 	fi
-```
+	```
 
 22. 情境：檔案若使用git進行版本控制，檔案進行修改後，可使用指令產生patch，後續可在其他的git repositary 加入patch檔的修正
 
@@ -327,7 +327,7 @@
 	// 全改小寫
 	```
 
-8. 情境：遞迴搜尋資料夾，但是忽略符合格式的檔案(例如 *.pyc)
+8. 情境：遞迴搜尋資料夾，但是忽略符合格式的檔案(例如 `*.pyc`)
 
 	```bash
 	指令：grep -r keyword --exclude '*.pyc' target_folder/
@@ -337,11 +337,11 @@
 
 9. 情境：迅速撈出檔案中的特定行數
 
-    例如：迅速撈出第 16 行內容
+	例如：迅速撈出第 16 行內容
 
-    ```bash
-    指令：nl index.html | grep "^\s*16" | head -n 1
-    ```
+	```bash
+	指令：nl index.html | grep "^\s*16" | head -n 1
+	```
 
 ### 檔案處理
 1. 情境：大量改檔案名稱，並且遞增檔案id
@@ -443,7 +443,7 @@
 	
 	function backup()
 	{
-    	cp $1 $1.bak
+		cp $1 $1.bak
 	}
 
 	# 使用方法：$ backup file.sh
