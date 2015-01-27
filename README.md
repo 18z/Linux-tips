@@ -340,7 +340,8 @@
 	例如：迅速撈出第 16 行內容
 
 	```bash
-	指令：nl index.html | grep "^\s*16" | head -n 1
+	指令一：nl index.html | grep "^\s*16" | head -n 1
+	指令二：sed -n 16p index.html
 	```
 
 ### 檔案處理
