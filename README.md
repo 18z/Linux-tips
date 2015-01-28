@@ -88,7 +88,7 @@
 10. 情境：加入既有ssh private key
 
 	```bash
-	指令：cp id* .ssh; ssh-add
+	指令：cp id* .ssh; eval `ssh-agent -s`; ssh-add
 	```
 
 11. 情境：檢查是否以root身份執行
