@@ -257,6 +257,12 @@
 	指令：ssh-keygen -R 伺服器端的IP或網址
 	```
 
+24. 情境：用 date 轉換 unix time
+
+	```bash
+	指令：date -d @timestamp
+	```
+
 ### 文字編輯
 1. 情境：去除檔案中惱人的^M符號。(注意，^M要打ctrl+v及ctrl+m才會出現。)
 
