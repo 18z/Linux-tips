@@ -1,5 +1,3 @@
-## Linux-tips
-
 ### 系統管理
 1. 情境：計算硬碟上以/dev/開頭之filesystem剩餘空間
 
@@ -288,6 +286,18 @@
 
 	# 印出 CDPATH 設定
 	echo $CDPATH
+	```
+
+27. 情境：讓 history 顯示時間戳記
+
+	```bash
+	指令：export HISTTIMEFORMAT="%F %T "
+	```
+
+28. 情境：多個 inter active bash 存在時，讓 history 不會彼此 overwrite
+
+	```bash
+	指令：shopt -s histappend
 	```
 
 ### 文字編輯
