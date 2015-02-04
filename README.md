@@ -266,6 +266,7 @@
 	```bash
 	指令：date -d @timestamp
 	```
+
 25. 情境：用 chsh 更改 shell 環境
 
 	```bash
@@ -274,6 +275,19 @@
 	指令：chsh -s /etc/bash
 	# 執行後，重新 login
 	# 用 ps $$ 查看 shell 環境是否改變
+	```
+
+26. 情境：bash 變數索引表
+
+	```bash
+	# 印出 bash 版本
+	echo $BASH_VERSION
+	
+	# 印出 hostname
+	echo $HOSTNAME
+
+	# 印出 CDPATH 設定
+	echo $CDPATH
 	```
 
 ### 文字編輯
