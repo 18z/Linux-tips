@@ -266,6 +266,15 @@
 	```bash
 	指令：date -d @timestamp
 	```
+25. 情境：用 chsh 更改 shell 環境
+
+	```bash
+	# 先用 cat /etc/shells 查看有哪些 shell 環境
+
+	指令：chsh -s /etc/bash
+	# 執行後，重新 login
+	# 用 ps $$ 查看 shell 環境是否改變
+	```
 
 ### 文字編輯
 1. 情境：去除檔案中惱人的^M符號。(注意，^M要打ctrl+v及ctrl+m才會出現。)
