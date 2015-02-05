@@ -286,6 +286,9 @@
 
 	# 印出 CDPATH 設定
 	echo $CDPATH
+
+	# 印出分隔字元
+	echo $IFS
 	```
 
 27. 情境：讓 history 顯示時間戳記
