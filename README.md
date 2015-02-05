@@ -390,6 +390,18 @@
 	指令二：sed -n 16p index.html
 	```
 
+10. 情境：以「,」來斷字
+
+	```bash
+	腳本：
+
+	#!/bin/bash
+	IFS=$','
+	vals='/mnt,/var,/dev,/tmp,/Virtual Machines'
+	for i in $vals; do echo $i; done
+	unset IFS
+	```
+
 ### 檔案處理
 1. 情境：大量改檔案名稱，並且遞增檔案id
 
