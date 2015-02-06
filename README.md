@@ -312,6 +312,16 @@
 	指令：shopt -s histappend
 	```
 
+29. 情境：協助 bash 腳本 debug
+
+	```bash
+	# 腳本有錯立刻停止
+	set -e
+
+	# 顯示腳本執行進度
+	set -x
+	```
+
 ### 文字編輯
 1. 情境：去除檔案中惱人的^M符號。(注意，^M要打ctrl+v及ctrl+m才會出現。)
 
