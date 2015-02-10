@@ -432,6 +432,44 @@
 	unset IFS
 	```
 
+11. 情境：字串處理訣竅
+
+	```bash
+	# 變數/參數若無值則給予值 (適用於positional parameter)
+	${var:-defaultValue}
+
+	# 變數/參數若無值則給予值 (不適用於 positional parameter)
+	${var:=defaultValue}
+
+	# 變數/參數若無值則跳錯誤訊息
+	${var:?"error_msg"}
+
+	# 計算變數/參數字串長度
+	${#var}
+
+	# 刪除字串後半部符合 pattern 的部分 (shortest)
+	${var%pattern}
+
+	# 刪除字串後半部符合 pattern 的部分 (longest)
+	${var%%pattern}
+
+	# 顯示子字串(由左到右從第n個到第m個，n m 皆為數字)
+	${var:n:m}
+
+	# 刪除字串前半部符合 pattern 的部分 (shortest)
+	${var#pattern}
+
+	# 刪除字串後半部符合 pattern 的部分 (longest)
+	${var##pattern}
+
+	# 替換字串中符合 pattern 的部分 
+	# 若字串中有多個地方符合 pattern 則只會替換第一個找到的 pattern
+	${var/pattern/string}
+
+	# 替換字串中所有符合 pattern 的部分
+	${var//pattern/string}
+	```
+
 ### 檔案處理
 1. 情境：大量改檔案名稱，並且遞增檔案id
 
