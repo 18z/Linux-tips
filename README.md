@@ -333,6 +333,22 @@
 	Tue 2015
 	```
 
+31. 情境：Linux 效能觀察相關工具查閱表
+
+	![linux_observability_tools](./images/linux_observability_tools.png)
+
+32. 情境：Linux 效能觀察參數查閱表 (以sar工具來觀察)
+
+	![linux_observability_sar](./images/linux_observability_sar.png)
+
+33. 情境：Linux 效能測試相關工具查閱表
+
+	![linux_benchmarking_tools](./images/linux_benchmarking_tools.png)
+
+34. 情境：Linux 效能調校相關工具查閱表
+
+	![linux_tuning_tools](./images/linux_tuning_tools.png)
+
 ### 文字編輯
 1. 情境：去除檔案中惱人的^M符號。(注意，^M要打ctrl+v及ctrl+m才會出現。)
 
