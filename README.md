@@ -630,3 +630,39 @@
 	# 使用方法：$ extract file.壓縮檔副檔名
 
 	```
+
+15. 情境：取得符號連結 (symlink; symbolic link) 最終所指向的檔案之完整路徑
+
+	```bash
+	# 例如：取得系統安裝的 java 路徑。
+
+	指令一：readlink -f "$(which java)"
+
+	指令二：realpath "$(which java)"
+	# 需額外灌一個套件 "realpath"
+
+	指令三：python -c "import os; print os.path.realpath('$(which java)')"
+
+	# 以上三個輸出結果皆為：
+	# /usr/lib/jvm/java-7-openjdk-amd64/jre/bin/java
+
+	指令四：namei -x "$(which java)"
+	# 輸出結果：
+	# f: /usr/bin/java
+	#  D /
+	#  d usr
+	#  d bin
+	#  l java -> /etc/alternatives/java
+	#    D /
+	#    d etc
+	#    d alternatives
+	#    l java -> /usr/lib/jvm/java-7-openjdk-amd64/jre/bin/java
+	#      D /
+	#      d usr
+	#      d lib
+	#      d jvm
+	#      d java-7-openjdk-amd64
+	#      d jre
+	#      d bin
+	#      - java
+	```
