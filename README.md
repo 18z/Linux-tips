@@ -349,6 +349,12 @@
 
 	![linux_tuning_tools](./images/linux_tuning_tools.png)
 
+
+35. 情境：netfilter packet 遊歷表
+
+	![netfilter_packet_traversal](./images/nfk-traversal.png)
+
+
 ### 文字編輯
 1. 情境：去除檔案中惱人的^M符號。(注意，^M要打ctrl+v及ctrl+m才會出現。)
 
