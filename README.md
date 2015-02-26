@@ -354,6 +354,30 @@
 
 	![netfilter_packet_traversal](./images/nfk-traversal.png)
 
+36. 情境：子網路遮罩計算機
+
+	```bash
+	指令：sipcalc 192.168.100.0/24
+	
+	輸出結果：
+
+	-[ipv4 : 192.168.100.0/24] - 0
+
+	[CIDR]
+	Host address		- 192.168.100.0
+	Host address (decimal)	- 3232261120
+	Host address (hex)	- C0A86400
+	Network address		- 192.168.100.0
+	Network mask		- 255.255.255.0
+	Network mask (bits)	- 24
+	Network mask (hex)	- FFFFFF00
+	Broadcast address	- 192.168.100.255
+	Cisco wildcard		- 0.0.0.255
+	Addresses in network	- 256
+	Network range		- 192.168.100.0 - 192.168.100.255
+	Usable range		- 192.168.100.1 - 192.168.100.254
+	```
+
 
 ### 文字編輯
 1. 情境：去除檔案中惱人的^M符號。(注意，^M要打ctrl+v及ctrl+m才會出現。)
