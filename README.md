@@ -582,11 +582,13 @@
 7. 情境：顯示目錄底下資料夾大小並排序
 
 	```bash
-	指令：du -B K /dir --max-depth=1 | sort -g	//KB為單位
-	
-	指令：du -B M /dir --max-depth=1 | sort -g	//MB為單位
-	
-	指令：du -B G /dir --max-depth=1 | sort -g	//GB為單位
+	指令一：du -B K /dir --max-depth=1 | sort -g	//KB為單位
+
+	指令一：du -B M /dir --max-depth=1 | sort -g	//MB為單位
+
+	指令一：du -B G /dir --max-depth=1 | sort -g	//GB為單位
+
+	指令二：for i in G M K; do du -ah | grep [0-9]$i | sort -nr -k 1; done | head -n 11
 	```
 
 8. 情境： 將目錄下所有的檔案製作MD5(遞迴走訪)
