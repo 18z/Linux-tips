@@ -395,6 +395,12 @@
 	Last Usable IP Address = ......: 192.168.100.254	
 	```
 
+37. 情境：以 sshfs mount 遠端 server 的 filesystem
+
+	```bash
+	# 將遠端主機 IP 為 192.168.1.123 的 /root/ 目錄掛載到 /mnt/server1 目錄下
+	指令一：sudo sshfs root@192.168.1.123:/ /mnt/server1/
+	```
 
 ### 文字編輯
 1. 情境：去除檔案中惱人的^M符號。(注意，^M要打ctrl+v及ctrl+m才會出現。)
