@@ -34,6 +34,7 @@
 
 research to-dos
 
-	* bfw: bash firewall github.com/rcpoison/bfw
-	* bash works github.com/jpic/bashworks
-	* Bashinator: Bash Shell Script Framework github.com/wschlich/bashinator
+	* bfw: bash firewall	rcpoison/bfw
+	* bash works	jpic/bashworks
+	* Bashinator: Bash Shell Script Framework	wschlich/bashinator
+	* libbash: bashing for the masses 	Wizcorp/libbash
