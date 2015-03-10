@@ -402,6 +402,14 @@
 	指令一：sudo sshfs root@192.168.1.123:/ /mnt/server1/
 	```
 
+38. 情境：設定 alias，使其 ssh 連線到須透過特定 gw 的機器前先做檢查
+
+	```bash
+	# 將以下寫入 .bashrc 中
+	gw=$(sudo route -n|grep -o -E '(gw1_IP|gw2_IP)')
+	alias connect2remote='if [ $gw !="gw1_IP" ]; then echo "wrong gw"; else ssh username@ip; fi'
+	``` 
+
 ### 文字編輯
 1. 情境：去除檔案中惱人的^M符號。(注意，^M要打ctrl+v及ctrl+m才會出現。)
 
