@@ -7,7 +7,7 @@
     ```
     https://github.com/koalaman/shellcheck
     ```
-    
+
 2. 腳本測試 - shunit2
 
     ```
@@ -31,3 +31,9 @@
     ```
     https://github.com/vim-scripts/bash-support.vim
     ```
+
+research to-dos
+
+	* bfw: bash firewall github.com/rcpoison/bfw
+	* bash works github.com/jpic/bashworks
+	* Bashinator: Bash Shell Script Framework github.com/wschlich/bashinator
