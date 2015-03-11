@@ -407,7 +407,9 @@
 	```bash
 	# 將以下寫入 .bashrc 中
 	gw=$(sudo route -n|grep -o -E '(gw1_IP|gw2_IP)')
-	alias connect2remote='if [ $gw !="gw1_IP" ]; then echo "wrong gw"; else ssh username@ip; fi'
+	
+	指令一：alias connect2remote='if [ $gw == "gw1_IP" ]; then ssh username@ip; else echo "wrong gw"; fi'
+	指令二：alias connect2remote='[ $gw == "gw1_IP" ] && ssh username@ip'
 	``` 
 
 ### 文字編輯
