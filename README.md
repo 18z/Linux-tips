@@ -532,7 +532,7 @@
 	# 刪除字串後半部符合 pattern 的部分 (longest)
 	${var%%pattern}
 
-	# 顯示子字串(由左到右從第n個到第m個，n m 皆為數字)
+	# 顯示子字串(由左到右從第n個開始連續m個，n m 皆為數字)
 	${var:n:m}
 
 	# 刪除字串前半部符合 pattern 的部分 (shortest)
