@@ -415,7 +415,8 @@
 39. 情境：查詢外部 (WAN) ip
 
 	```bash
-	指令：curl ifconfig.me/ip
+	指令一：curl ifconfig.me/ip
+	指令二：wget -qO- ifconfig.me/ip
 
 	# 	ifconfig.me/ip 可替換成下列任一個
 		whatismyip.org
