@@ -412,6 +412,22 @@
 	指令二：alias connect2remote="[ $gw == "gw1_IP" ] && ssh username@ip || echo 'wrong gw!'"
 	``` 
 
+39. 情境：查詢外部 (WAN) ip
+
+	```bash
+	指令：curl ifconfig.me/ip
+
+	# 	ifconfig.me/ip 可替換成下列任一個
+		whatismyip.org
+		icanhazip.com
+		tnx.nl/ip
+		myip.dnsomatic.com
+		ip.appspot.com
+		checkip.dyndns.org:8245
+		whatismyip.com
+		jsonip.com
+	```
+
 ### 文字編輯
 1. 情境：去除檔案中惱人的^M符號。(注意，^M要打ctrl+v及ctrl+m才會出現。)
 
