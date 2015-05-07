@@ -438,6 +438,10 @@
 40. 情境：間隔 n 分鐘後關機
 
 	```bash
+	指令：shutdown -h +n
+	```
+
+	```bash
 	腳本一：
 	# n 分鐘後關機
 	$ bash countdown n
