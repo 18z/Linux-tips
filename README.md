@@ -142,7 +142,7 @@
 	```bash
 	腳本二：
 	```
-	
+
 	[ishadm](tools/ishadm)
 
 	```bash
@@ -434,6 +434,22 @@
 		whatismyip.com
 		jsonip.com
 	```
+
+40. 情境：間隔 n 分鐘後關機
+
+	```bash
+	腳本一：
+	# n 分鐘後關機
+	$ bash countdown n
+	```
+	[countdown](tools/countdown)
+
+	```bash
+	腳本二：
+	# 十分鐘內關機
+	$ rshutdown -g600
+	```
+	[rshutdown](tools/rshutdown)
 
 ### 文字編輯
 1. 情境：去除檔案中惱人的^M符號。(注意，^M要打ctrl+v及ctrl+m才會出現。)

@@ -1,9 +1,10 @@
 #!/bin/bash
 
-echo "The system will be shutdown in $1 minutes"
+echo "The system will be shutdown after $1 minutes"
 
 for ((i=$1;1<=i;i=i-1)); do
-	sleep 1m; echo "Shutting down in $i minutes";
+	sleep 1m; echo "Shutting down after $i minutes";
 done
 
+echo "SEE YA~"
 shutdown -h now
