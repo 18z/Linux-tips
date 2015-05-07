@@ -141,9 +141,9 @@
 
 	```bash
 	腳本二：
-
-	[ishadm](tools/ishadm)
 	```
+	
+	[ishadm](tools/ishadm)
 
 	```bash
 	指令：route add -net x.x.x.x netmask x.x.x.x gw x.x.x.x
