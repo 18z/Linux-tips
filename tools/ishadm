@@ -1,0 +1,106 @@
+#!/usr/bin/perl
+#
+# ishadm - Information Super Highway Administration. Unix/Linux.
+#
+# This checks and enables network routes to the Information Super Highway
+#  to ensure maximum Internet performance. Must be run as root to update
+#  the routes.
+#
+# 07-Nov-2004	ver 1.00
+#
+# USAGE: ishadm [-de]
+#	ishadm		# check current config
+#	ishadm -e	# enable Information Super Highway
+#	ishadm -d	# disable Information Super Highway
+#
+# WARNING: Wear a seatbelt and obey local traffic laws.
+#
+# COPYRIGHT: Copyright (c) 2004 Brendan Gregg.
+#
+#  This program is free software; you can redistribute it and/or
+#  modify it under the terms of the GNU General Public License
+#  as published by the Free Software Foundation; either version 2
+#  of the License, or (at your option) any later version.
+#
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  You should have received a copy of the GNU General Public License
+#  along with this program; if not, write to the Free Software Foundation,
+#  Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+#
+#  (http://www.gnu.org/copyleft/gpl.html)
+#
+# 07-Nov-2004	Brendan Gregg	Created this.
+
+$hosts = "/etc/hosts";
+@Table = `netstat -r`;
+$ENV{PATH} = "/usr/sbin:/usr/bin:/bin";
+
+
+#
+#  Check Status
+#
+unless (@ARGV) {
+	$ok = 0;
+	foreach (@Table) {
+		$ok = 1 if /information-super-highway/;
+	}
+	if ($ok) {
+		print "Information-Super-Highway is ON.\n"; 
+	} else {
+		print "Information-Super-Highway is OFF.\n";
+	}
+	exit(0);
+} 
+
+#
+#  Admin
+#
+unless (-o "/etc/hosts" || $ARGV[0] !~ /^-[ed]$/) {
+	print "ERROR2: Only root can drive the Information-Super-Highway.\n";
+	exit(1);
+}
+open(HOSTS,"$hosts") || die "ERROR3: Can't read $hosts: $!\n";
+@Hosts = <HOSTS>;
+close HOSTS;
+
+if ($ARGV[0] eq "-e") {
+	### Enable 
+	if (grep(/information-super-highway/,@Hosts) == 0) {
+		open(HOSTS,">>$hosts") || die "ERROR4: writing $hosts: $!\n";
+		print HOSTS "127.0.0.42	information-super-highway\n";
+		close HOSTS;
+	}
+	if (grep(/information-super-highway/,@Table) == 0) {
+		system("route add information-super-highway 127.0.0.1");
+		print "Information-Super-Highway is now ON.\n"; 
+	} else {
+		print "Information-Super-Highway was already ON.\n"; 
+	}
+} elsif ($ARGV[0] eq "-d") {
+	### Disable 
+	if (grep(/information-super-highway/,@Table) == 1) {
+		system("route delete information-super-highway 127.0.0.1");
+		print "Information-Super-Highway is now OFF.\n"; 
+	} else {
+		print "Information-Super-Highway was already OFF.\n"; 
+	}
+	if (grep(/information-super-highway/,@Hosts) == 1) {
+		open(HOSTS,">$hosts") || die "ERROR4: writing $hosts: $!\n";
+		foreach $line (@Hosts) {
+			print HOSTS $line 
+			 unless $line =~ /information-super-highway/;
+		}
+		close HOSTS;
+	}
+} else {
+	### Usage
+	print STDERR "USAGE: ishadm [-de]\n";
+	print STDERR "   eg,\n";
+	print STDERR "      ishadm     # check status\n";
+	print STDERR "      ishadm -e  # enable\n";
+	print STDERR "      ishadm -d  # disable\n";
+}
