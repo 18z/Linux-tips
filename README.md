@@ -9,7 +9,7 @@
 2. 情境：看資料夾結構
 
 	```bash
-	指令：tree -d 
+	指令：tree -d
 	```
 
 	// 只列出資料夾 tree -L 2 只列出最多兩層
@@ -54,12 +54,12 @@
 
 	```bash
 	腳本一：
-	
+
 	ping -c 1 8.8.8.8
-	
-	# check if the ping command was successfully executed. 
+
+	# check if the ping command was successfully executed.
 	# (0 means yes, 1 means no)
-	
+
 	if [ $? -eq 0 ]; then
 		echo "successfully executed!" >> report.txt
 	fi
@@ -67,9 +67,9 @@
 
 	```bash
 	腳本二：
-		
+
 	# this one is shorter
-	
+
 	ping -c 1 8.8.8.8 && echo "successfully executed!" >> report.txt
 	```
 
@@ -103,10 +103,10 @@
 		echo "執行身份非root"
 	fi
 	```
-	
+
 	```bash
 	腳本二：
-	
+
 	if [ `whoami` != "root" ];
 	then
 		echo "I am not root"
@@ -130,13 +130,19 @@
 14. 情境：使得某些特定ip透過特定gw出去
 
 	```bash
-	腳本：
-	
+	腳本一：
+
 	arr=("ip1" "ip2")
 	for i in ${arr[*]}
 	do
 		route add -host $i gw ip
 	done
+	```
+
+	```bash
+	腳本二：
+
+	[ishadm](tools/ishadm)
 	```
 
 	```bash
@@ -156,7 +162,7 @@
 
 	```bash
 	指令一：grep -c ^processor /proc/cpuinfo
-	
+
 	指令二：grep -Ec '^cpu[0-9]+ ' /proc/stat
 
 	// 常用來搭配 make 指令，寫在 shell script 中使用，以利加速建置。
@@ -194,7 +200,7 @@
 	指令：export LC_ALL=C;LANG=C;LANGUAGE=en_US
 
 	// 輸入locale進行確認：
-	
+
 	$ locale
 	LANG=C
 	LANGUAGE=en_US
@@ -230,18 +236,18 @@
 
 	if [ $NOWLOGS == $NO_LOG ]; then
 		echo "no business today"
-		
+
 	elif [ $NOWLOGS -eq $PASTLOGS ]; then
 		echo "no business during checking points"
-		
+
 	elif [ $NOWLOGS -gt $PASTLOGS ]; then
 		echo "New logs logged"
 		echo "$NOWLOGS" > n_of_log
-		
+
 	else
 		echo "refresh n_of_log"
 		echo "$NOWLOGS" > n_of_log
-	
+
 	fi
 	```
 
@@ -251,7 +257,7 @@
 	指令：git diff commit1 commit 2 > foo.patch
 	```
 
-   	![scenario22](./images/scenario22.gif)      
+   	![scenario22](./images/scenario22.gif)
 
 23. 情境：以SSH登入時出現「WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!」
 
@@ -280,7 +286,7 @@
 	```bash
 	# 印出 bash 版本
 	echo $BASH_VERSION
-	
+
 	# 印出 hostname
 	echo $HOSTNAME
 
@@ -358,7 +364,7 @@
 
 	```bash
 	指令一：sipcalc 192.168.100.0/24
-	
+
 	輸出結果：
 
 	-[ipv4 : 192.168.100.0/24] - 0
@@ -376,7 +382,7 @@
 	Addresses in network	- 256
 	Network range		- 192.168.100.0 - 192.168.100.255
 	Usable range		- 192.168.100.1 - 192.168.100.254
-	
+
 	指令二：whatmask 192.168.100.0/24
 
 	------------------------------------------------
@@ -392,7 +398,7 @@
 	Broadcast Address = ...........: 192.168.100.255
 	Usable IP Addresses = .........: 254
 	First Usable IP Address = .....: 192.168.100.1
-	Last Usable IP Address = ......: 192.168.100.254	
+	Last Usable IP Address = ......: 192.168.100.254
 	```
 
 37. 情境：以 sshfs mount 遠端 server 的 filesystem
@@ -407,10 +413,10 @@
 	```bash
 	# 將以下寫入 .bashrc 中
 	gw=$(sudo route -n|grep -o -E '(gw1_IP|gw2_IP)')
-	
+
 	指令一：alias connect2remote="if [ $gw == "gw1_IP" ]; then ssh username@ip; else echo 'wrong gw'; fi"
 	指令二：alias connect2remote="[ $gw == "gw1_IP" ] && ssh username@ip || echo 'wrong gw!'"
-	``` 
+	```
 
 39. 情境：查詢外部 (WAN) ip
 
@@ -434,15 +440,15 @@
 
 	```bash
 	指令一：sed -i -e 's/^M//g' file
-	
-	指令二：dos2unix file  
-	
+
+	指令二：dos2unix file
+
 	// 這個符號多半是因為Windows上面編輯的檔案移到Unix系統上在編輯的時候會遇到，使用 dos2unix 可以直接轉換。
-	
+
 	指令三：perl -p -i -e 's/\r\n$/\n/g' my_file.txt
 
 	指令四：若已經用 vim 開啟的話，可執行下列指令於 vim 裡：
-	
+
 	// 參考 [File format - Vim Tips Wiki](http://vim.wikia.com/wiki/File_format)
 
 	:update            # 存儲任何修改。
@@ -473,11 +479,11 @@
 
 	```bash
 	指令：convmv -r -f <from> -t <to> dir/
-	
+
 	// 遞迴改（不是真改）
 
 	指令：convmv -r -f --notest -f <from> -t <to> dir/
-	
+
 	// 遞迴改（真改）
 	```
 
@@ -491,7 +497,7 @@
 
 	```bash
 	指令一：echo TeSt | awk '{ print toupper($_) }'
-	
+
 	// 全改大寫
 
 	指令二：echo TeSt | awk '{ print tolower($_) }'
@@ -558,7 +564,7 @@
 	# 刪除字串後半部符合 pattern 的部分 (longest)
 	${var##pattern}
 
-	# 替換字串中符合 pattern 的部分 
+	# 替換字串中符合 pattern 的部分
 	# 若字串中有多個地方符合 pattern 則只會替換第一個找到的 pattern
 	${var/pattern/string}
 
@@ -589,10 +595,10 @@
 
 	```bash
 	腳本：上面這個方法萬一資料夾裡面還有資料夾，可能就不符合預期行為。
-	
+
 	for file in $(ls folder)
-	do 
-		python utils/submit.py folder/$file 
+	do
+		python utils/submit.py folder/$file
 	done
 	```
 
@@ -636,8 +642,8 @@
 	指令：dd if=/dev/zero of=test.img bs=1M count=1
 
 	// 檢查
-	     
-	$ hexdump -C test.img 
+
+	$ hexdump -C test.img
 	00000000  00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
 	*
 	00100000
@@ -646,7 +652,7 @@
 10. 情境：將1.png ~ 10.png 更名為001.png ~ 010.png
 
 	```bash
-	指令：$ for i in `seq 1 10`; do mv $i.png `printf "%03d" $i`.png; done 
+	指令：$ for i in `seq 1 10`; do mv $i.png `printf "%03d" $i`.png; done
 	```
 
 11. 情境：將檔案名稱中空白部分以底線取代
@@ -665,7 +671,7 @@
 
 	```bash
 	腳本：請直接加在 .bashrc 中，並執行 source ~/.bashrc。
-	
+
 	function backup()
 	{
 		cp $1 $1.bak
@@ -680,22 +686,22 @@
 
 	```bash
 	腳本：請直接加在 .bashrc 中，並執行 source ~/.bashrc。
-	
+
 	function extract()      # Handy Extract Program
 	{
 		if [ -f $1 ] ; then
 			case $1 in
-				*.tar.bz2)   tar xvjf $1     ;;  
-				*.tar.gz)    tar xvzf $1     ;;  
-				*.bz2)       bunzip2 $1      ;;  
-				*.rar)       unrar x $1      ;;  
-				*.gz)        gunzip $1       ;;  
-				*.tar)       tar xvf $1      ;;  
-				*.tbz2)      tar xvjf $1     ;;  
-				*.tgz)       tar xvzf $1     ;;  
-				*.zip)       unzip $1        ;;  
-				*.Z)         uncompress $1   ;;  
-				*.7z)        7z x $1         ;;  
+				*.tar.bz2)   tar xvjf $1     ;;
+				*.tar.gz)    tar xvzf $1     ;;
+				*.bz2)       bunzip2 $1      ;;
+				*.rar)       unrar x $1      ;;
+				*.gz)        gunzip $1       ;;
+				*.tar)       tar xvf $1      ;;
+				*.tbz2)      tar xvjf $1     ;;
+				*.tgz)       tar xvzf $1     ;;
+				*.zip)       unzip $1        ;;
+				*.Z)         uncompress $1   ;;
+				*.7z)        7z x $1         ;;
 				*)           echo "'$1' cannot be extracted via >extract<" ;;
 			esac
 		else
