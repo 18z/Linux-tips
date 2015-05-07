@@ -441,6 +441,14 @@
 	腳本一：
 	# n 分鐘後關機
 	$ bash countdown n
+
+	The system will be shutdown in 5 minutes
+	Shutting down in 5 minutes
+	Shutting down in 4 minutes
+	Shutting down in 3 minutes
+	Shutting down in 2 minutes
+	Shutting down in 1 minutes
+	SEE YA~
 	```
 	[countdown](tools/countdown)
 
@@ -448,6 +456,14 @@
 	腳本二：
 	# 十分鐘內關機
 	$ rshutdown -g600
+
+	Shutdown started.    Thu Dec  2 18:26:58 EST 2004
+
+	The system mars will be shutdown in 10 minutes
+	The system mars will be shutdown in 9 minutes
+	The system mars will be shutdown in 8 minutes
+	The system mars will be shutdown in 4 minutes
+	THE SYSTEM mars IS BEING SHUT DOWN NOW ! ! !
 	```
 	[rshutdown](tools/rshutdown)
 
