@@ -1,0 +1,115 @@
+#!/usr/bin/ksh
+#
+# rshutdown - rough shutdown, shutdown in roughly 5 minutes.
+#
+# This program uses the same countdown timer as many major railway networks
+#  throughout the world, including Sydney's CityRail. Users who are
+#  comfortable watching minutes count down erattically while waiting for
+#  their train will experience the same sense of excitement and suprise 
+#  while waiting for the system to shutdown. 
+#
+# USAGE: rshutdown [-yN] [-g secs] [-i level] [message]
+#
+#   eg, rshutdown -g600 -i5 -y		# shutdown in 10 minutes (or so)
+#	rshutdown -g600 -i5 -y -N	# print timing only, don't shutdown
+#
+# SEE ALSO: /etc/shutdown, /usr/games/rogue
+#
+# COPYRIGHT: Copyright (c) 2004 Brendan Gregg.
+#
+#  This program is free software; you can redistribute it and/or
+#  modify it under the terms of the GNU General Public License
+#  as published by the Free Software Foundation; either version 2
+#  of the License, or (at your option) any later version.
+#
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  You should have received a copy of the GNU General Public License
+#  along with this program; if not, write to the Free Software Foundation,
+#  Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+#
+#  (http://www.gnu.org/copyleft/gpl.html)
+#
+# 04-Dec-2004   Brendan Gregg   Created this.
+
+### Defaults
+seconds=300
+runlevel=""
+yes=""
+printonly=0
+
+### Process options
+while getopts g:hi:yN name
+do
+	case $name in
+	g)	seconds=$OPTARG
+		;;
+	i)	runlevel="-i $OPTARG"
+		;;
+	y)	yes="-y"
+		;;
+	N)	printonly=1
+		;;
+	h|?)	cat <<-END >&2
+		USAGE: $0 [-yN] [-g secs] [-i level] [message]
+		  eg,
+		      rshutdown -g600      # shutdown in 10 minutes (or so)
+		      rshutdown -g600 -N   # print timing only, don't shutdown
+		END
+		exit 1
+	esac
+done
+shift $(( OPTIND - 1 ))
+message=$*
+
+### Process variables
+hostname=`uname -n`
+typeset -i mins secs
+(( mins = seconds / 60 ))
+(( secs = seconds % 60 ))
+
+### Begin
+echo "\nShutdown started.    `date`\n"
+
+#
+#  Main Loop
+#
+while :
+do
+	### Print shutdown message
+	time="$mins minute"
+	if (( mins > 1 )); then time=${time}s; fi
+	text="The system $hostname will be shutdown in $time"
+	if (( printonly )); then
+		echo $text
+	else
+		echo "$text\n$message" | wall -a
+		sleep 60
+		if (( secs > 0 )); then sleep $secs; secs=0; fi
+	fi
+	
+	### Decrement minutes by 1. or maybe not.
+	if (( (RANDOM % 4) > 0 )); then
+		mins=mins-1
+	elif (( (RANDOM % 2) > 0 )); then
+		mins=mins+1
+	elif (( (RANDOM % 2) > 0 )); then
+		(( mins = mins + (RANDOM % 9) - 6 ))
+		if (( mins < 0 )); then mins=0; fi
+	else
+		:
+	fi
+
+	### Time to shutdown
+	if (( mins <= 0 )); then break; fi
+done
+
+### Shutdown
+if (( printonly )); then
+	echo "THE SYSTEM $hostname IS BEING SHUT DOWN NOW ! ! !"
+else
+	shutdown -g 0 $yes $runlevel $message
+fi
