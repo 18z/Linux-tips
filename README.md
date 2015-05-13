@@ -471,6 +471,30 @@
 	```
 	[rshutdown](tools/rshutdown)
 
+41. 情境：一主機雙網卡
+
+	```bash
+	腳本：
+
+	# 設定第一個 subnet 的路由表 (表名稱命名為70)
+	ip route flush table 70
+	ip route add table 70 to 172.70.12.0/23 dev eth0
+	ip route add table 70 to default via 172.70.12.1 dev eth0
+
+	# 設定第二個 subnet 的路由表 (表名稱命名為80)
+	ip route flush table 80
+	ip route add table 80 to 172.80.24.0/23 dev eth1
+	ip route add table 80 to default via 172.80.24.1 dev eth1
+
+	# 建立路由表選取的規則。依據 source IP 來選擇。
+	# 每一條規則都需要給 priority 值，方便起見就給予路由表名。
+	ip rule add from 172.70.12.0/23 table 70 priority 70
+	ip rule add from 172.80.24.0/23 table 80 priority 80
+
+	# 清空 route cache
+	ip route flush cache
+	```
+
 ### 文字編輯
 1. 情境：去除檔案中惱人的^M符號。(注意，^M要打ctrl+v及ctrl+m才會出現。)
 
