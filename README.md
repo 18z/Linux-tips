@@ -478,13 +478,13 @@
 
 	# 設定第一個 subnet 的路由表 (表名稱命名為70)
 	ip route flush table 70
-	ip route add table 70 to 172.70.12.0/23 dev eth0
-	ip route add table 70 to default via 172.70.12.1 dev eth0
+	ip route add to 172.70.12.0/23 dev eth0 table 70
+	ip route add to default via 172.70.12.1 dev eth0 table 70
 
 	# 設定第二個 subnet 的路由表 (表名稱命名為80)
 	ip route flush table 80
-	ip route add table 80 to 172.80.24.0/23 dev eth1
-	ip route add table 80 to default via 172.80.24.1 dev eth1
+	ip route add to 172.80.24.0/23 dev eth1 table 80
+	ip route add to default via 172.80.24.1 dev eth1 table 80
 
 	# 建立路由表選取的規則。依據 source IP 來選擇。
 	# 每一條規則都需要給 priority 值，方便起見就給予路由表名。
