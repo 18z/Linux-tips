@@ -13,7 +13,9 @@ Routing Tables 簡介：
 
 	* Main routing table 為一般使用者所認知的 linux routing table。
 		* route 指令所修改的路由內容，就是修改 main routing table 中的內容。
+
 	* 若未使用 ip route 指令指定該使用哪張路由表時，則 kernel 就會使用 main routing table。
+	
 	* 與 local routing table 相似，main routing table 也是由 kernel 自動產生。
 
 ---
