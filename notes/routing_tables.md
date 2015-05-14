@@ -15,7 +15,7 @@ Routing Tables 簡介：
 		* route 指令所修改的路由內容，就是修改 main routing table 中的內容。
 
 	* 若未使用 ip route 指令指定該使用哪張路由表時，則 kernel 就會使用 main routing table。
-	
+
 	* 與 local routing table 相似，main routing table 也是由 kernel 自動產生。
 
 ---
@@ -27,7 +27,7 @@ Routing Tables 號碼：
 扣掉 localhost ，可使 254個實體或虛擬網卡介面，進行靜態路由。
 
 其中 table 254 號被別名為 main，
-table 0 號別名為 local。
+table 255 號別名為 local。
 
 參考資料：
 
