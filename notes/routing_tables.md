@@ -33,7 +33,8 @@ Routing Tables 簡介：
 
 	* 閱讀相關資料 [1] 後，擷取相關內文如下，但尚未理解其中奧義。
 
-		* Operating on the unspec routing table appears to operate on all routing tables simultaneously. Is this true!? What does that imply?.
+		* Operating on the unspec routing table appears to operate on all routing tables simultaneously. Is this true!? What does that imply?
+
 ---
 
 Routing Tables 號碼：
