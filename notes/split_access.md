@@ -8,7 +8,7 @@
 
 ---
 
-### 1. 技術文件原文
+### 1. 技術文件原文與網路架構圖
 
 The situation: A single box has multiple NICs in it, each connected to a different subnet (and therefore with distinct IP addresses). For specificity in the following, let us assume it has two NICs, one NICA having an IP address IPaddrA on the subnetA subnet. The other, NICB, has IP address IPaddrB on the subnetB subnet.
 
@@ -43,6 +43,27 @@ ip rule add from 172.80.24.0/23 table 80 priority 80
 ip route flush cache
 ```
 
+網路架構圖
+
+```
+                                            ________
+                     +------------+        /
+                     |            |       |
+       +-------------+  subnetA   +-------
+       |             |            |     /
++------+-------+     +------------+    |
+|     NICA     |                      /
+|              |                      |
++ Linux router |                      |     Internet
+|              |                      |
+|     NICB     |                      \
++------+-------+     +------------+    |
+       |             |            |     \
+       +-------------+  subnetB   +-------
+                     |            |       |
+                     +------------+        \________
+```
+
 ---
 
 ### 2. 疑問集
@@ -69,9 +90,9 @@ ip route flush cache
 證明一：回應時，封包的 src IP 位置是 IpaddrB。
 
 ```bash
-假定 
+假定
 
-table 70 is for subnetA 172.70.12.0/23 
+table 70 is for subnetA 172.70.12.0/23
 table 80 is for subnetB 172.80.24.0/23
 
 $ ip rule add from 172.70.12.0/23 table 70 priority 70
@@ -90,8 +111,8 @@ $ ip rule add from 172.80.24.0/23 table 80 priority 80
 表示，table 80 被選取為封包派送的指南。
 間接證明回應封包的 src IP 位置是 IpaddrB。(# 得證 1)
 ```
-	
-證明二：封包被 drop 是 Linux 本機幹的，而非外部 router。 
+
+證明二：封包被 drop 是 Linux 本機幹的，而非外部 router。
 
 ```bash
 
@@ -100,7 +121,7 @@ $ ip rule add from 172.80.24.0/23 table 80 priority 80
 70 : 表項內容為 src Ipaddr 屬於 subnetA 就往 subnet A gw 送
 80 : 表項內容為 src Ipaddr 屬於 subnetB 就往 subnet B gw 送
 
-但 main routing table 卻沒設定 default gw 
+但 main routing table 卻沒設定 default gw
 
 在上述路由環境下，
 此時，若想從本機往外 ping 出去，是無法成功的。
