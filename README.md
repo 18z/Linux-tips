@@ -495,6 +495,33 @@
 	ip route flush cache
 	```
 
+42. 情境：切換使用者
+
+	```bash
+	$ su <user>
+
+	切換使用者 ID。
+
+	假設有兩使用者 ID (A, B)。
+	以 A ID 輸入 su B 後，則會切換至 B ID。
+
+	若以 A ID 輸入 su B --preserve-environment 後，一樣會切換至 B ID。
+	但profile, .bashrc 等環境參數還是會持續使用 A ID 的設定。
+
+	$ sudo su <user>
+
+	以 root 身份執行 su <user>。與 su <user> 差別在於執行指令後，
+	輸入之密碼不同。
+
+	例如：
+	以 A ID 輸入 su B，則輸入 B ID 密碼後，即切換至 B ID。
+	以 A ID 輸入 sudo su B，則輸入 A ID 密碼後，即切換至 B ID。
+
+	$ sudo su -
+
+	切換至 root 且使用 root 的環境設定。
+	```
+
 ### 文字編輯
 1. 情境：去除檔案中惱人的^M符號。(注意，^M要打ctrl+v及ctrl+m才會出現。)
 
