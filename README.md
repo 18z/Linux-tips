@@ -520,6 +520,11 @@
 	$ sudo su -
 
 	切換至 root 且使用 root 的環境設定。
+
+	sudo 配置
+
+	使用者帳號	登入者的來源主機名稱=(可切換的身份 user:group)	可下達的指令
+	root						ALL	=(ALL:ALL)					ALL   <==這是預設值
 	```
 
 ### 文字編輯
