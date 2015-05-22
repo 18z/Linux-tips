@@ -54,7 +54,7 @@ ping_check(){
 		"$DOUBLE_TAB_SEP"\
 		"$ALERT_MSG"
 	else
-        echo -e "\t$TARGET"\
+		echo -e "\t$TARGET"\
 		"$SINGLE_TAB_SEP"\
 		"$GRN_LIGHT"\
 		"$DOUBLE_TAB_SEP"
