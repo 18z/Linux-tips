@@ -42,7 +42,7 @@ ping_check(){
 	if [ "$PING_RESULT" != `ping $HOST -c 1 | grep -E -o '[0-9]+ received' | cut -f1 -d' '` ]; then
 		echo -e "\t8.8.8.8 alive"\
 		"$SINGLE_TAB_SEP"\
-		"${red}$BAD${NC}"\
+		"$RED_LIGHT"\
 		"$DOUBLE_TAB_SEP"\
 		"The host is probably down."
 	else
