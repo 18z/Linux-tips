@@ -24,29 +24,37 @@ table_header(){
 }
 
 snort_service(){
+
+	TARGET="Snort Service"
+	ALERT_MSG="Snort is not working. Do something."
+
 	if ps ax | grep -v grep | grep snort > /dev/null; then
-		echo -e "\tSnort Service"\
+		echo -e "\t$TARGET"\
 		"$SINGLE_TAB_SEP"\
 		"$GRN_LIGHT"\
 		"$DOUBLE_TAB_SEP"
 	else
-		echo -e "\tSnort Service"\
+		echo -e "\t$TARGET"\
 		"$SINGLE_TAB_SEP"\
 		"$RED_LIGHT"\
 		"$DOUBLE_TAB_SEP"\
-		"Snort is not working. Do something."
+		"$ALERT_MSG"
 	fi
 }
 
 ping_check(){
+
+	TARGET="8.8.8.8 alive"
+	ALERT_MSG="The host is probably down."
+
 	if [ "$PING_RESULT" != `ping $HOST -c 1 | grep -E -o '[0-9]+ received' | cut -f1 -d' '` ]; then
-		echo -e "\t8.8.8.8 alive"\
+		echo -e "\t$TARGET"\
 		"$SINGLE_TAB_SEP"\
 		"$RED_LIGHT"\
 		"$DOUBLE_TAB_SEP"\
-		"The host is probably down."
+		"$ALERT_MSG"
 	else
-        	echo -e "\t8.8.8.8 alive"\
+        echo -e "\t$TARGET"\
 		"$SINGLE_TAB_SEP"\
 		"$GRN_LIGHT"\
 		"$DOUBLE_TAB_SEP"
