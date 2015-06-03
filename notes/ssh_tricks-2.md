@@ -49,3 +49,9 @@ ip addr add 192.168.0.1/24 peer 192.168.0.2 dev tun0
 ip link set tun0 up
 ip addr add 192.168.0.2/24 peer 192.168.0.1 dev tun0
 ```
+
+參考資料：
+
+```
+https://help.ubuntu.com/community/SSH_VPN
+```
