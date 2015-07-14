@@ -668,6 +668,12 @@
 	${var//pattern/string}
 	```
 
+12. 情境：將檔案中重複的行，印出來
+
+	```
+	sort duplicates.txt |uniq -d
+	```
+
 ### 檔案處理
 1. 情境：大量改檔案名稱，並且遞增檔案id
 
