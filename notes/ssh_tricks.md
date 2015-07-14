@@ -7,7 +7,7 @@ SSH 參數說明
 
 -L: Local Port Forwarding.  本地機器連到遠端機器。
 -N: 不執行 ssh command, 加了這個參數後，
-    畫面就不會進入 tty(Terminal) 模式， 
+    畫面就不會進入 tty(Terminal) 模式，
     tty 模式是指登入 ssh server，並且可以輸入 linux 指令。
     若我們沒有進入 tty, 畫面就會卡在程式執行中的狀態，
     如此只要按 ctrl +c 就可以執行中斷程式。
@@ -59,16 +59,16 @@ root@localserverA $ ssh -L 8080:localhost:80 root@remote_server
 ```
 -L:	Local Port Forwarding.  本地機器連到遠端機器。
 
-8080 port: 
+8080 port:
   	開在 Local Server A 上。
 	會將連至該 port 之連線，透過 3333 port 轉送給 Remote Server 的 22 port。
 	ps. 3333 port 為此案例中舉例，真實 port 數字是由 openssh 選定。
 
 localhost: 就是 Remote Server 本身。
 
-80 port: 
+80 port:
 	開在 Remote Server 上。
-	會將 22 port 接收到的封包，轉送給本機端 80 port。 
+	會將 22 port 接收到的封包，轉送給本機端 80 port。
 ```
 
 
@@ -121,14 +121,14 @@ root@localserverA $ ssh -L 8080:remote_serverB:80 root@remote_serverA
 ```
 -L:	Local Port Forwarding.  本地機器連到遠端機器。
 
-8080 port: 
+8080 port:
 	開在 Local Server A 上。
 	會將連至該 port 之連線，透過 3333 port 轉送給 Remote Server 的 22 port。
 	ps. 3333 port 為此案例中舉例，真實 port 數字是由 openssh 選定。
 
-80 port: 
+80 port:
 	開在 Remote Server B 上。
-	會將 Remote Server A 22 port 接收到的封包，轉送給 Remote Server B 的80 port。 
+	會將 Remote Server A 22 port 接收到的封包，轉送給 Remote Server B 的80 port。
 ```
 
 
@@ -170,7 +170,7 @@ root@localserverA $ ssh -NfR 8080:localhost:80 root@remote_server
 
 ```
 -N: 不執行 ssh command, 加了這個參數後，
-    畫面就不會進入 tty(Terminal) 模式， 
+    畫面就不會進入 tty(Terminal) 模式，
     tty 模式是指登入 ssh server，並且可以輸入 linux 指令。
     若我們沒有進入 tty, 畫面就會卡在程式執行中的狀態，
     如此只要按 ctrl +c 就可以執行中斷程式。
@@ -179,16 +179,16 @@ root@localserverA $ ssh -NfR 8080:localhost:80 root@remote_server
 
 -R: Remote Port Forwarding. 遠端機器連回本地機器。
 
-8080 port: 
+8080 port:
 	開在 Remote Server 上。
 	會將連至該 port 之連線，透過 3333 port 轉送給 Remote Server 的 22 port。
 	ps. 3333 port 為此案例中舉例，真實 port 數字是由 openssh 選定。
 
 localhost: 就是 Local Server A 本身。
 
-80 port: 
+80 port:
 	開在 Local Server 上。
-	會將 22 port 接收到的封包，轉送給本機端 80 port。 
+	會將 22 port 接收到的封包，轉送給本機端 80 port。
 ```
 
 ## 情境四：情境二之反向 SSH 通道
@@ -235,7 +235,7 @@ root@localserverA $ ssh -NfR 8080:local_serverB:80 root@remote_serverA
 
 ```
 -N: 不執行 ssh command, 加了這個參數後，
-    畫面就不會進入 tty(Terminal) 模式， 
+    畫面就不會進入 tty(Terminal) 模式，
     tty 模式是指登入 ssh server，並且可以輸入 linux 指令。
     若我們沒有進入 tty, 畫面就會卡在程式執行中的狀態，
     如此只要按 ctrl +c 就可以執行中斷程式。
@@ -244,19 +244,19 @@ root@localserverA $ ssh -NfR 8080:local_serverB:80 root@remote_serverA
 
 -R: Remote Port Forwarding. 遠端機器連回本地機器。
 
-8080 port: 
+8080 port:
 	開在 Remote Server A 上。
 	會將連至該 port 之連線，透過 3333 port 轉送給 Local Server 的 22 port。
 	ps. 3333 port 為此案例中舉例，真實 port 數字是由 openssh 選定。
 
-80 port: 
+80 port:
 	開在 Local Server B 上。
-	會將 Local Server A 22 port 接收到的封包，轉送給 Local Server B 的80 port。 
+	會將 Local Server A 22 port 接收到的封包，轉送給 Local Server B 的80 port。
 ```
 
 
 參考文獻：
-	
+
 	1. http://portable.easylife.tw/2043
 	2. http://www.openbsd.org/cgi-bin/man.cgi/OpenBSD-current/man1/slogin.1?query=ssh&sec=1
 	3. http://fred-zone.blogspot.tw/2011/09/ssh-tunnel-vpn.html
