@@ -265,10 +265,14 @@
 	指令：ssh-keygen -R 伺服器端的IP或網址
 	```
 
-24. 情境：用 date 轉換 unix time
+24. 情境：用 date 將人類可讀的日期、時間 <-> unix time
 
 	```bash
-	指令：date -d @timestamp
+	# unix time -> 人類可讀的日期、時間
+	指令一：date -d @timestamp
+
+	# 人類可讀的日期、時間 -> unix time
+	指令二：date +%s --date='2015-01-01'
 	```
 
 25. 情境：用 chsh 更改 shell 環境
