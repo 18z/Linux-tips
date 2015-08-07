@@ -3,7 +3,7 @@
 ### 封包分析前置作業：
 
 1. 安裝 wireshark
-	
+
 	細節可參考 [wireshark 官網](https://www.wireshark.org/download.html)
 
 2. 調整 wireshark 封包顯示欄位
@@ -34,7 +34,7 @@
 gui.column.hidden: %m,%p
 
 找到第 202 行，新增四個欄位。
-gui.column.format: 
+gui.column.format:
     "No.", "%m",
     "Time", "%t",
     "Source", "%s",
@@ -44,8 +44,8 @@ gui.column.format:
     "Protocol", "%p",
     "Host (https)", "%Cus:ssl.handshake.extensions_server_name:0:R",
     "Host (http)", "%Cus:http.host:0:R",
-    "Info", "%i" 
-    
+    "Info", "%i"
+
 修改完成後，存擋。
 
 重新開啟 wireshark，即可看到新欄位設定。
@@ -55,7 +55,7 @@ gui.column.format:
 ### 好用 filter
 
 1. 查看 http request
-	
+
 	`filter: http.request`
 
 2. 查看 https 連線 host name
@@ -79,4 +79,4 @@ gui.column.format:
 	`上傳至 virus total 掃描`
 
 --
-備註：本文內容絕大部份參考 Malware-Traffic-Analysis.net
+備註：本文內容絕大部份參考 [Malware-Traffic-Analysis.net](http://malware-traffic-analysis.net/)
