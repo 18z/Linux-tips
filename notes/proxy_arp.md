@@ -122,16 +122,16 @@ Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
 ```
 
 #### Host Machine 設定畫面
-![host_settings](https://raw.githubusercontent.com/deanboole/Linux-tips/master/images/host_settings.png)
+![host_settings](https://cdn.rawgit.com/deanboole/Linux-tips/master/images/host_settings.png)
 
 
 #### 在 Guest Machine 上 ping 8.8.8.8
-![guest_ping_g](https://raw.githubusercontent.com/deanboole/Linux-tips/master/images/guest_ping_g.png)
+![guest_ping_g](https://cdn.rawgit.com/deanboole/Linux-tips/master/images/guest_ping_g.png)
 
 #### Wireshark 聽到的結果
 仔細看，Host Machine vboxnet0 (0a:00:27:00:00:00) 回應 Guest Machine (CadmusCo_88:0c:a6) 說：「8.8.8.8 就是我拉。」
 
-![wireshark_arp](https://raw.githubusercontent.com/deanboole/Linux-tips/master/images/wireshark_arp.png)
+![wireshark_arp](https://cdn.rawgit.com/deanboole/Linux-tips/master/images/wireshark_arp.png)
 
 #### 依據實驗結果，推測 ping 流程
 ```
