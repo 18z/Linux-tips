@@ -9,7 +9,7 @@
 2. 經子網路遮罩計算，判定為同一子網路下。因此發送 ARP request 封包，以取得 PC2 的 MAC Address。
 3. Router 聽到 ARP request 後，便會跟 PC1 說：「我是 PC2，PC2 是我」，並回傳 Router eth0 的 MAC Address 給 PC1。
 4. PC1 接到 Router 回應之 ARP reply 後，更新 PC1 中 ARP table。將 PC2 的 MAC 內容實際填寫 Router 的 MAC。
-5. PC1 透過 MAC Address 發送 icmp 給 PC2。
+5. PC1 將封包 Layer 2 部分的 destination 欄位填上 Router eth0 的 MAC Address (注意：Layer 3 部分的 desination 欄位填的是 P2 的 IP)，發送 icmp 給 P2。
 6. icmp 實際上是先送給 Router，再由 Router 轉送給 PC2。
 ```
  [細節請參考文獻] [1]
@@ -21,7 +21,7 @@
 2. 經子網路遮罩計算，判定為同一子網路下。因此發送 ARP request 封包，以取得 PC2 的 MAC Address。
 3. Router 聽到 ARP request 後，便會跟 Host A 說：「我是 Host D，Host D是我」，並回傳 Router e0 的 MAC Address 給 Host A。
 4. Host A 接到 Router 回應之 ARP reply 後，更新 Host A 中 ARP table。將 Host D 的 MAC 內容實際填寫 Router 的 MAC。
-5. Host A 透過 MAC Address 發送 icmp 給 Host D。
+5. Host A 將封包 Layer 2 部分的 destination 欄位填上 Router e0 的 MAC Address (注意：Layer 3 部分的 desination 欄位填的是 Host D 的 IP)， 發送 icmp 給 Host D。
 6. icmp 實際上是先送給 Router，再由 Router 轉送給 Host D。
 ```
 
