@@ -77,6 +77,10 @@ gui.column.format:
 	`以 snort 或 Suricata 掃描`
 
 	`上傳至 virus total 掃描`
+	
+6.查看 dns request
+
+	`filter: dns`
 
 --
 備註：本文內容絕大部份參考 [Malware-Traffic-Analysis.net](http://malware-traffic-analysis.net/)
