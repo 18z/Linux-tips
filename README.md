@@ -680,6 +680,22 @@
     sort duplicates.txt |uniq -d
     ```
 
+13. 情境：漂亮排版
+
+    ```bash
+    指令：alias pp="column -s ';' -t"
+
+    輸出結果(未使用 pp)：
+    $ cat test.txt
+    1;John
+    3;Mary
+
+    輸出結果(使用 pp)：
+    cat test.txt|pp
+    1  John
+    3  Mary
+    ```
+
 ### 檔案處理
 1. 情境：大量改檔案名稱，並且遞增檔案id
 
