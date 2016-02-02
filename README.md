@@ -537,6 +537,13 @@
     指令：cd $OLDPWD
     ```
 
+44. 情境：Ubuntu 移除沒用到的 kernel 與 header
+
+    ```bash
+    指令：sudo apt-get purge $(dpkg -l linux-{image,headers}-"[0-9]*" | awk '/ii/{print $2}' | grep -ve "$(uname -r | sed -r 's/-[a-z]+//')")
+    ```
+
+
 ### 檔案編輯
 1. 情境：去除檔案中惱人的^M符號。(注意，^M要打ctrl+v及ctrl+m才會出現。)
 
