@@ -3,7 +3,9 @@
 1.  GooglePlay Android Application 頁面
 
     ```bash
+    https://play.google.com/store/recommended?sp=CAEwAA%3D%3D:S:ANO1ljJWlbk&c=apps&hl=zh-TW
     目的：將該頁面中所有的 Application 的 id 爬出來 (該頁面以 g.html 為檔名存擋)
+
     $ grep -Po '(?<=\?id=)[^"]*' g.html |sort|uniq|grep -P "\."|grep -v "\+"
     am.sunrise.android.calendar
     com.alfred.parkinglot
