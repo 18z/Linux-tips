@@ -879,3 +879,18 @@
     #      d bin
     #      - java
     ```
+
+16. 以 python 實作 bash 函式
+    ```bash
+    function pipe_func_in_py() {
+
+    python -c "$(cat <<EOPY
+    import sys
+    for line in sys.stdin:
+        print ( "%s" % ( line.rjust(25) ) )
+    EOPY
+    )"
+
+    }
+
+    ```
