@@ -894,3 +894,17 @@
     }
 
     ```
+
+17. 以 wget 抓取整個網站
+    ```bash
+    $ wget --recursive --no-clobber --page-requisites --html-extension --convert-links --restrict-file-names=windows url
+    --recursive: download the entire Web site.
+    --domains example.org: don’t follow links outside website.org.
+    --no-parent: don’t follow links outside the directory manual/install/.
+    --page-requisites: get all the elements that compose the page (images, CSS and so on).
+    --html-extension: save files with the .html extension.
+    --convert-links: convert links so that they work locally, off-line.
+    --restrict-file-names=windows: modify filenames so that they will work in Windows as well.
+    --no-clobber: don’t overwrite any existing files (used in case the download is interrupted and resumed).
+    -e robots=off: ignore robots.txt
+    ```
