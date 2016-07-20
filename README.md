@@ -542,6 +542,12 @@
     ```bash
     指令：sudo apt-get purge $(dpkg -l linux-{image,headers}-"[0-9]*" | awk '/ii/{print $2}' | grep -ve "$(uname -r | sed -r 's/-[a-z]+//')")
     ```
+    
+    ```bash
+    腳本：
+    sudo /usr/sbin/update-grub
+    sudo apt-get autoremove
+    ```
 
 
 ### 檔案編輯
