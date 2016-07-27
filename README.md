@@ -548,7 +548,13 @@
     sudo /usr/sbin/update-grub
     sudo apt-get autoremove
     ```
+    
+45. 情境：如何尋找安裝套件時，缺乏的 header file或 Libary。
 
+    ```bash
+    假設安裝套件過程中，出現錯誤訊息如 fatal error: GL/gl.h: No such file or directory
+    指令: apt-file search "gl.h"
+    ```
 
 ### 檔案編輯
 1. 情境：去除檔案中惱人的^M符號。(注意，^M要打ctrl+v及ctrl+m才會出現。)
