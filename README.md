@@ -556,6 +556,19 @@
     指令: apt-file search "gl.h"
     ```
 
+46. 情境：如何知道特定 process 已運行多久？
+
+    ```bash
+    假設 mongodb 的 pid 是 43873
+    
+    指令：ps -p 43873 -o pid,cmd,etime,uid,gid
+    
+    結果：
+    PID CMD                             ELAPSED   UID   GID
+    43873 /usr/bin/mongod --config /e 64-22:58:04   106 65534
+    其中 ELAPSED 格式為 [[dd-]hh:]mm:ss
+    ```
+
 ### 檔案編輯
 1. 情境：去除檔案中惱人的^M符號。(注意，^M要打ctrl+v及ctrl+m才會出現。)
 
