@@ -727,6 +727,16 @@
     1  John
     3  Mary
     ```
+    
+14. 情境：轉換檔案編碼
+
+    ```bash
+    for file in *.php
+    do
+        iconv -f big5 -t utf8 -o "$file.new" "$file" &&
+        mv -f "$file.new" "$file"
+    done
+    ```
 
 ### 檔案處理
 1. 情境：大量改檔案名稱，並且遞增檔案id
