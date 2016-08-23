@@ -570,6 +570,27 @@
     其中 ELAPSED 格式為 [[dd-]hh:]mm:ss
     ```
 
+47. 情境：如何知道特定 process 開始執行的日期與時間？
+
+    ```bash
+    假設 lxterminal的pid是1878
+    
+    指令： stat /proc/1878
+    
+    結果：
+    $ stat /proc/1878/
+    File: ‘/proc/1878/’
+    Size: 0         	Blocks: 0          IO Block: 1024   directory
+    Device: 4h/4d	Inode: 14925       Links: 9
+    Access: (0555/dr-xr-xr-x)  Uid: ( 1000/  qerter)   Gid: ( 1000/  qerter)
+    Access: 2016-08-21 13:45:49.681763512 +0800
+    Modify: 2016-08-21 13:45:49.681763512 +0800
+    Change: 2016-08-21 13:45:49.681763512 +0800
+    Birth: -
+    
+    其中Modify時間可做為該process開始執行日期與時間之參考
+    ```
+
 ### 檔案編輯
 1. 情境：去除檔案中惱人的^M符號。(注意，^M要打ctrl+v及ctrl+m才會出現。)
 
