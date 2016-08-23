@@ -534,7 +534,8 @@
 43. 情境：返回前一個目錄
 
     ```bash
-    指令：cd $OLDPWD
+    指令一：cd $OLDPWD
+    指令二：cd -
     ```
 
 44. 情境：Ubuntu 移除沒用到的 kernel 與 header
